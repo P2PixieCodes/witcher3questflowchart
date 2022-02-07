@@ -1,5 +1,7 @@
 digraph G {
     compound=true;
+    newrank=true;
+    ranksep=2.5;
     node [ style="rounded,filled", fillcolor=lightgrey, shape=box ];
     
     # main quest nodes must be initialised first to make sure they have the right colours
@@ -10,467 +12,635 @@ digraph G {
 
     subgraph base_game {
         
-        subgraph cluster_prologue {
-            label="Prologue";
-            style="rounded,filled";
-            fillcolor=grey;
+        subgraph cluster_prologue_to_act3 {
             
-            subgraph prologue_main {
-                node [fillcolor=white];
+            subgraph cluster_prologue_to_act2 {
                 
-                { rank=source; mq01 [label="Kaer Morhen"]; }
+                subgraph cluster_prologue {
+                    label="Prologue";
+                    style="rounded,filled";
+                    fillcolor=gray50;
+                    
+                    subgraph prologue_main {
+                        node [fillcolor=white];
+                        
+                        { rank="source"; mq01 [label="Kaer Morhen"]; }
+                        
+                        mq02 [label="Lilac and Gooseberries"];
+                        mq03 [label="The Beast of White Orchard"];
+                        mq04 [label="The Incident at White Orchard"];
+                        mq05 [label="Imperial Audience"];
+                    }
+                    
+                    subgraph prologue_side {
+                        sq007 [label="A Frying Pan, Spick and Span"];
+                        sq009 [label="Missing in Action"];
+                        sq010 [label="On Death's Bed"];
+                        sq011 [label="Precious Cargo"];
+                        sq012 [label="Twisted Firestarter"];
+                    }
+                    
+                    white_orchard [label="white orchard unlocked",fillcolor=red]; # TODO: hide
+                }
                 
-                mq02 [label="Lilac and Gooseberries"];
-                mq03 [label="The Beast of White Orchard"];
-                mq04 [label="The Incident at White Orchard"];
-                mq05 [label="Imperial Audience"];
+                subgraph act1 {
+                    
+                    subgraph cluster_act1_velen {
+                        label="Act I: In Ciri's Footsteps\n(Velen)";
+                        style="rounded,filled";
+                        fillcolor=gray50;
+                        
+                        subgraph act1_velen_main {
+                            node [fillcolor=white];
+                            
+                            mq06 [label="The Nilfgaardian Connection"];
+                            mq07 [label="Bloody Baron"];
+                            mq08 [label="Ciri's Story: The King of the Wolves"];
+                            mq09 [label="Family Matters"];
+                            mq09_a [label="Family Matters (Find the Baron's wife)"];
+                            mq09_b [label="Family Matters (Find the Baron's daughter)"];
+                            mq10 [label="A Princess in Distress"];
+                            mq11 [label="Ciri's Story: The Race"];
+                            mq12 [label="Ciri's Story: Out of the Shadows"];
+                            mq13 [label="Hunting a Witch"];
+                            mq14 [label="Wandering in the Dark"];
+                            mq15 [label="Ladies of the Wood"];
+                            mq16 [label="Ciri's Story: Fleeing the Bog"];   
+                        }
+                        
+                        subgraph act1_velen_side {
+                            sq050 [label="The Whispering Hillock"];
+                        }
+                        
+                        velen [label="velen unlocked",fillcolor=steelblue]; # TODO: hide
+                        
+                    }
+                        
+                    subgraph cluster_act1_novigrad {
+                        label="Act I: In Ciri's Footsteps\n(Novigrad)";
+                        style="rounded,filled";
+                        fillcolor=gray50;
+                        
+                        subgraph act1_novigrad_main {
+                            node [fillcolor=white];
+                            
+                            mq17 [label="Pyres of Novigrad"];
+                            mq18 [label="Novigrad Dreaming"];
+                            mq19 [label="Broken Flowers"];
+                            mq20 [label="Get Junior"];
+                            mq20_a [label="Get Junior (Search Hideout)"];
+                            mq20_b [label="Get Junior (Search Arena)"];
+                            mq20_c [label="Get Junior (Search Casino)"];
+                            mq20_d [label="Get Junior (Meet the Redanian contact)"];
+                            mq21 [label="Ciri's Story: Visiting Junior"];
+                            mq22 [label="Count Reuven's Treasure"];
+                            mq22_a [label="Count Reuven's Treasure (Witch Hunters' Outpost)"];
+                            mq23 [label="A Favor for Radovid"];
+                            mq24 [label="The Play's the Thing"];
+                            mq25 [label="A Poet Under Pressure"];
+                            mq26 [label="Ciri's Story: Breakneck Speed"];
+                        }
+                        
+                        subgraph act1_novigrad_side {
+                            sq003 [label="Following The Thread"];
+                            sq061 [label="A Walk on the Waterfront"];
+                            sq099 [label="The Gangs of Novigrad"];
+                        }
+                        
+                        novigrad [label="novigrad unlocked",fillcolor=mediumspringgreen]; # TODO: hide
+                        
+                    }
+                    
+                    subgraph cluster_act1_skellige {
+                        label="Act I: In Ciri's Footsteps\n(Skellige)";
+                        style="rounded,filled";
+                        fillcolor=gray50;
+                        
+                        subgraph act1_skellige_main {
+                            node [fillcolor=white];
+                            
+                            mq27 [label="Destination: Skellige"];
+                            mq28 [label="The King is Dead - Long Live the King"];
+                            mq29 [label="Echoes of the Past"];
+                            mq30 [label="Missing Persons"];
+                            mq31 [label="Nameless"];
+                            mq32 [label="The Calm Before the Storm"];
+                            mq33 [label="A Mysterious Passenger"];
+                        }
+                        
+                        subgraph act1_skellige_side {
+                            sq003_a [label="Following The Thread (Hammond)"];
+                            sq120 [label="Flesh for Sale"];
+                            sq144 [label="The Last Wish"];
+                        }
+                        
+                        skellige [label="skellige unlocked",fillcolor=firebrick4]; # TODO: hide
+                    }
+                    
+                }
+                
+                mq_act1_end [label="Act I end",fillcolor=red];
+                
+                subgraph cluster_act2 {
+                    
+                    label="Act II";
+                    style="rounded,filled";
+                    fillcolor=gray50;
+                    
+                    subgraph act2_main {
+                        node [fillcolor=white];
+                        
+                        mq34 [label="Ugly Baby"];
+                        mq34_b [label="Ugly Baby (Ending)"];
+                        mq35 [label="Disturbance"];
+                        mq36 [label="To Bait a Forktail..."];
+                        mq37 [label="The Final Trial"];
+                        mq38 [label="No Place Like Home"];
+                        mq39 [label="Va Fail, Elaine"];
+                        mq40 [label="Brothers In Arms: Velen"];
+                        mq41 [label="Brothers In Arms: Novigrad"];
+                        mq42 [label="Brothers In Arms: Skellige"];
+                        mq43 [label="Brothers In Arms: Nilfgaard"];
+                        mq44 [label="The Isle of Mists"];
+                        mq45 [label="The Battle of Kaer Morhen"];
+                        mq46 [label="Blood on the Battlefield"];
+                    }
+                    
+                    subgraph act2_side {
+                        sq154 [label="Berengar's Blade"];
+                    }
+                    
+                    kaer_morhen [label="kaer morhen unlocked",fillcolor=lightslateblue]; # TODO: hide
+                }
+                
+                subgraph side_prologue_to_act2 {
+                    sq022 [label="Ciri's Room"];
+                    sq042 [label="Lynch Mob"];
+                    sq046 [label="Return to Crookback Bog"];
+                    sq055 [label="A Dangerous Game"];
+                    sq068 [label="Fencing Lessons"];
+                    sq106 [label="Witch Hunter Raids"];
+            
+                    subgraph cluster_assassin {
+                        label="Assassin";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        
+                        sq056 [label="A Deadly Plot"];
+                        sq063 [label="An Eye for an Eye"];
+                        sq091 [label="Redania's Most Wanted"];
+                        dummy_assassin [label="dummy assassin",fillcolor=khaki];
+                    }
+                    
+                    subgraph cluster_triss {
+                        label="Triss";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        
+                        sq059 [label="A Matter of Life and Death"];
+                        sq084 [label="Now or Never"];
+                    }
+                    
+                    subgraph cluster_dandelion {
+                        label="Dandelion";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        
+                        sq064 [label="Cabaret"];
+                        sq065 [label="Carnal Sins"];
+                    }
+                    
+                    subgraph cluster_keira {
+                        label="Keira";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        
+                        sq014 [label="A Favor for a Friend"];
+                        sq016 [label="A Towerful of Mice"];
+                        sq017 [label="An Invitation from Keira Metz"];
+                        sq030 [label="For the Advancement of Learning"];
+                        sq043 [label="Magic Lamp"];
+                    }
+                    
+                    subgraph cluster_reardon_manor {
+                        label="Letho + Reardon Manor";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        
+                        sq033 [label="Ghosts of the Past"];
+                        sq048 [label="The Fall of the House of Reardon"];
+                    }
+                    
+                    subgraph cluster_skellige_inheritance {
+                        
+                        subgraph cluster_lugos_boys {
+                            label="Skellige inheritance (Lugos Sr. and Jr.)";
+                            #label="";
+                            #color=transparent;
+                            #style="";
+                            
+                            sq110 [label="An Unpaid Debt"];
+                            sq135 [label="Stranger in a Strange Land"];
+                            sq137 [label="The Cave of Dreams"];
+                            contract30 [label="Contract: The Phantom of Eldberg"];
+                        }
+                        
+                        subgraph cluster_cerys_hjalmar {
+                            label="Skellige inheritance (Cerys and Hjalmar)";
+                            #label="";
+                            #color=transparent;
+                            #style="";
+                            
+                            sq114 [label="Coronation"];
+                            sq128 [label="King's Gambit"];
+                            sq131 [label="Possession"];
+                            sq145 [label="The Lord of Undvik"];
+                        }
+                    }
+                    
+                    subgraph best_place_to_put_these_prologue_to_act_2 {
+                        sq015 [label="A Greedy God"];
+                        sq031 [label="Forefathers' Eve"];
+                        sq039 [label="Last Rites"];
+                        sq051 [label="Thou Shalt Not Pass"];
+                        sq057 [label="A Feast for Crows"];
+                        sq073 [label="Haunted House"];
+                        sq076 [label="High Stakes"];
+                        sq077 [label="Honor Among Thieves"];
+                        sq083 [label="Novigrad, Closed City"];
+                        sq087 [label="Out On Your Arse!"];
+                        sq088 [label="Race: The Great Erasmus Vegelbud Memorial Derby"];
+                        sq096 [label="Suspicious Shakedown"];
+                        sq125 [label="In Wolf's Clothing"];
+                        sq139 [label="The Four Faces of Hemdall"];
+                        contract08 [label="Contract: Swamp Thing"];
+                        contract14 [label="Contract: Woodland Beast"];
+                        contract15 [label="Contract: An Elusive Thief"];
+                        contract16 [label="Contract: Deadly Delights"];
+                        contract25 [label="Contract: Missing Miners"];
+                        contract28 [label="Contract: Skellige's Most Wanted"];
+                        
+                        subgraph cluster_fake_papers {
+                            label="Fake Papers + brother";
+                            #label="";
+                            #color=transparent;
+                            #style="";
+                            
+                            sq019 [label="Bitter Harvest"];
+                            sq027 [label="Fake Papers"];
+                        }
+                    }
+                }
             }
             
-            subgraph prologue_side {
-                sq007 [label="A Frying Pan, Spick and Span"];
-                sq009 [label="Missing in Action"];
-                sq010 [label="On Death's Bed"];
-                sq011 [label="Precious Cargo"];
-                sq012 [label="Twisted Firestarter"];
-            }
-            
-            white_orchard [label="white orchard unlocked",fillcolor=red]; # TODO: hide
-            { rank=same; mq03; sq010; }
-        }
-        
-        subgraph act1 {
-            
-            subgraph cluster_act1_velen {
-                label="Act I: In Ciri's Footsteps\n(Velen)";
+            subgraph cluster_act3 {
+                label="Act III";
                 style="rounded,filled";
-                fillcolor=grey;
+                fillcolor=gray50;
                 
-                subgraph act1_velen_main {
+                subgraph act3_main {
                     node [fillcolor=white];
                     
-                    mq06 [label="The Nilfgaardian Connection"];
-                    mq07 [label="Bloody Baron"];
-                    mq08 [label="Ciri's Story: The King of the Wolves"];
-                    mq09 [label="Family Matters"];
-                    mq09_a [label="Family Matters (Find the Baron's wife)"];
-                    mq09_b [label="Family Matters (Find the Baron's daughter)"];
-                    mq10 [label="A Princess in Distress"];
-                    mq11 [label="Ciri's Story: The Race"];
-                    mq12 [label="Ciri's Story: Out of the Shadows"];
-                    mq13 [label="Hunting a Witch"];
-                    mq14 [label="Wandering in the Dark"];
-                    mq15 [label="Ladies of the Wood"];
-                    mq16 [label="Ciri's Story: Fleeing the Bog"];   
+                    mq47 [label="Bald Mountain"];
+                    mq48 [label="Final Preparations"];
+                    mq49 [label="Blindingly Obvious"];
+                    mq50 [label="The Great Escape"];
+                    mq51 [label="Payback"];
+                    mq52 [label="Through Time and Space"];
+                    mq53 [label="Battle Preparations"];
+                    mq54 [label="The Sunstone"];
+                    mq55 [label="Veni Vidi Vigo"];
+                    mq56 [label="Child of the Elder Blood"];
+                    mq57 [label="Skjall's Grave"];
+                    mq58 [label="On Thin Ice"];
+                    mq59 [label="Tedd Deireadh, The Final Age"];
+                    mq60 [label="Something Ends, Something Begins"];
                 }
                 
-                subgraph act1_velen_side {
-                    sq050 [label="The Whispering Hillock"];
+                subgraph act3_side {
+                    sq008 [label="Faithful Friend"];
+                    sq058 [label="A Final Kindness"];
+                    sq078 [label="It Takes Three to Tango"];
+                    sq090 [label="Reason of State"];
                 }
-                
-                { rank=same; mq07 -> mq13 [style=invis]; }
-                { rank=same; mq08 -> mq14 [style=invis]; }
-                { rank=same; mq10 -> mq11 -> mq09_b -> mq09_a [style=invis]; }
-                { rank=same; mq15; sq050; }
-                { rank=same; mq06; velen; }
-                velen [label="velen unlocked",fillcolor=steelblue]; # TODO: hide
-                
-            }
-                
-            subgraph cluster_act1_novigrad {
-                label="Act I: In Ciri's Footsteps\n(Novigrad)";
-                style="rounded,filled";
-                fillcolor=grey;
-                
-                subgraph act1_novigrad_main {
-                    node [fillcolor=white];
-                    
-                    mq17 [label="Pyres of Novigrad"];
-                    mq18 [label="Novigrad Dreaming"];
-                    mq19 [label="Broken Flowers"];
-                    mq20 [label="Get Junior"];
-                    mq20_a [label="Get Junior (Search Hideout)"];
-                    mq20_b [label="Get Junior (Search Arena)"];
-                    mq20_c [label="Get Junior (Search Casino)"];
-                    mq20_d [label="Get Junior (Meet the Redanian contact)"];
-                    mq21 [label="Ciri's Story: Visiting Junior"];
-                    mq22 [label="Count Reuven's Treasure"];
-                    mq22_a [label="Count Reuven's Treasure (Witch Hunters' Outpost)"];
-                    mq23 [label="A Favor for Radovid"];
-                    mq24 [label="The Play's the Thing"];
-                    mq25 [label="A Poet Under Pressure"];
-                    mq26 [label="Ciri's Story: Breakneck Speed"];
-                }
-                
-                subgraph act1_novigrad_side {
-                    sq003 [label="Following The Thread"];
-                    sq061 [label="A Walk on the Waterfront"];
-                    sq099 [label="The Gangs of Novigrad"];
-                }
-                
-                { rank=same; novigrad; mq17; }
-                novigrad [label="novigrad unlocked",fillcolor=mediumspringgreen]; # TODO: hide
                 
             }
             
-            subgraph cluster_act1_skellige {
-                label="Act I: In Ciri's Footsteps\n(Skellige)";
-                style="rounded,filled";
-                fillcolor=grey;
-                
-                subgraph act1_skellige_main {
-                    node [fillcolor=white];
-                    
-                    mq27 [label="Destination: Skellige"];
-                    mq28 [label="The King is Dead - Long Live the King"];
-                    mq29 [label="Echoes of the Past"];
-                    mq30 [label="Missing Persons"];
-                    mq31 [label="Nameless"];
-                    mq32 [label="The Calm Before the Storm"];
-                    mq33 [label="A Mysterious Passenger"];
-                }
-                
-                subgraph act1_skellige_side {
-                    sq003_a [label="Following The Thread (Hammond)"];
-                    sq120 [label="Flesh for Sale"];
-                    sq144 [label="The Last Wish"];
-                }
-                
-                skellige [label="skellige unlocked",fillcolor=firebrick4]; # TODO: hide
-            }
-            
-        }
-        
-        subgraph cluster_act2 {
-            
-            label="Act II";
-            style="rounded,filled";
-            fillcolor=grey;
-            
-            subgraph act2_main {
-                node [fillcolor=white];
-                
-                mq34 [label="Ugly Baby"];
-                mq35 [label="Disturbance"];
-                mq36 [label="To Bait a Forktail..."];
-                mq37 [label="The Final Trial"];
-                mq38 [label="No Place Like Home"];
-                mq39 [label="Va Fail, Elaine"];
-                mq40 [label="Brothers In Arms: Velen"];
-                mq41 [label="Brothers In Arms: Novigrad"];
-                mq42 [label="Brothers In Arms: Skellige"];
-                mq43 [label="Brothers In Arms: Nilfgaard"];
-                mq44 [label="The Isle of Mists"];
-                mq45 [label="The Battle of Kaer Morhen"];
-                mq46 [label="Blood on the Battlefield"];
-            }
-            
-            subgraph act2_side {
-                sq154 [label="Berengar's Blade"];
-            }
-            
-            kaer_morhen [label="kaer morhen unlocked",fillcolor=lightslateblue]; # TODO: hide
-        }
-        
-        subgraph cluster_act3 {
-            label="Act III";
-            style="rounded,filled";
-            fillcolor=grey;
-            
-            subgraph act3_main {
-                node [fillcolor=white];
-                
-                mq47 [label="Bald Mountain"];
-                mq48 [label="Final Preparations"];
-                mq49 [label="Blindingly Obvious"];
-                mq50 [label="The Great Escape"];
-                mq51 [label="Payback"];
-                mq52 [label="Through Time and Space"];
-                mq53 [label="Battle Preparations"];
-                mq54 [label="The Sunstone"];
-                mq55 [label="Veni Vidi Vigo"];
-                mq56 [label="Child of the Elder Blood"];
-                mq57 [label="Skjall's Grave"];
-                mq58 [label="On Thin Ice"];
-                mq59 [label="Tedd Deireadh, The Final Age"];
-                mq60 [label="Something Ends, Something Begins"];
-            }
-            
-            subgraph act3_side {
-                sq008 [label="Faithful Friend"];
-                sq078 [label="It Takes Three to Tango"];
-                sq090 [label="Reason of State"];
+            subgraph side_prologue_to_act3 {
+                sq101 [label="The Nobleman Statuette"];
+                sq103 [label="The Soldier Statuette"];
+                contract01 [label="Contract: Devil by the Well"];
             }
             
         }
         
         subgraph side {
             
-            subgraph cluster_gwent {
-                label="Gwent";
-                style="rounded,filled";
-                fillcolor=gainsboro;
-                
-                {  rank=source; sq002 [label="Collect 'Em All"]; }
-                
-                sq004 [label="Gwent: Old Pals"];
-                sq034 [label="Gwent: Velen Players"];
-                sq070 [label="Gwent: Big City Players"];
-                sq071 [label="Gwent: Playing Innkeeps"];
-                sq072 [label="Gwent: Playing Thaler"];
-                sq123 [label="Gwent: Skellige Style"];
-            }
-            
-            subgraph cluster_fighting {
-                label="";
-                style="rounded,filled";
-                fillcolor=gainsboro;
-                
-                sq028 [label="Fists of Fury: Velen"];
-                sq069 [label="Fists of Fury: Novigrad"];
-                sq119 [label="Fists of Fury: Skellige"];
-                sq118 [label="Fists of Fury: Champion of Champions"];
-            }
-            
-            subgraph cluster_fake_papers {
-                label="";
-                color=transparent;
-                style="";
-                
-                sq019 [label="Bitter Harvest"];
-                sq027 [label="Fake Papers"];
-            }
-            
-            subgraph cluster_assassin {
-                label="";
-                color=transparent;
-                style="";
-                
-                sq056 [label="A Deadly Plot"];
-                sq063 [label="An Eye for an Eye"];
-                sq091 [label="Redania's Most Wanted"];
-            }
-            
-            subgraph cluster_triss {
-                label="";
-                color=transparent;
-                style="";
-                
-                sq059 [label="A Matter of Life and Death"];
-                sq084 [label="Now or Never"];
-            }
-            
-            # Multiple Regions
-                sq001 [label="Black Pearl"];
-                sq005 [label="Master Armorers"];
-                sq006 [label="Never Trust Children"];
-            # Velen
-                sq013 [label="A Dog's Life"];
-                sq014 [label="A Favor for a Friend"];
-                sq015 [label="A Greedy God"];
-                sq016 [label="A Towerful of Mice"];
-                sq017 [label="An Invitation from Keira Metz"];
-                sq018 [label="At the Mercy of Strangers"]; # done?
-                sq020 [label="Blood Ties"];
-                sq021 [label="Caravan Attack"];
-                sq022 [label="Ciri's Room"];
-                sq023 [label="Deadly Crossing"];
-                sq024 [label="Death By Fire"];
-                sq025 [label="Defender of the Faith"];
-                sq026 [label="Face Me if You Dare!"];
-                sq029 [label="Fools' Gold"];
-                sq030 [label="For the Advancement of Learning"];
-                sq031 [label="Forefathers' Eve"];
-                sq032 [label="Funeral Pyres"];
-                sq033 [label="Ghosts of the Past"];
-                sq035 [label="Harassing a Troll"];
-                sq036 [label="Hazardous Goods"];
-                sq037 [label="Highway Robbery"];
-                sq038 [label="Highwayman's Cache"];
-                sq039 [label="Last Rites"];
-                sq040 [label="Looters"];
-                sq041 [label="Love's Cruel Snares"];
-                sq042 [label="Lynch Mob"];
-                sq043 [label="Magic Lamp"];
-                sq044 [label="Man's Best Friend"];
-                sq045 [label="Races: Crows's Perch"];
-                sq046 [label="Return to Crookback Bog"];
-                sq047 [label="Take What You Want"];
-                sq048 [label="The Fall of the House of Reardon"];
-                sq049 [label="The Truth is in the Stars"];
-                sq051 [label="Thou Shalt Not Pass"];
-                sq052_a [label="Where the Cat and Wolf Play..."];
-                sq052_b [label="Wild at Heart"];
-                sq053 [label="Witcher Wannabe"];
-            # Novigrad
-                sq054 [label="A Barnful of Trouble"];
-                sq055 [label="A Dangerous Game"];
-                sq057 [label="A Feast for Crows"];
-                sq058 [label="A Final Kindness"];
-                sq060 [label="A Tome Entombed"];
-                sq062 [label="A Warm Welcome"];
-                sq064 [label="Cabaret"];
-                sq065 [label="Carnal Sins"];
-                sq066 [label="Drunken Rabble"];
-                sq067 [label="Empty Coop"];
-                sq068 [label="Fencing Lessons"];
-                sq073 [label="Haunted House"];
-                sq074 [label="Hey, You Wanna Look at my Stuff?"];
-                sq075 [label="Hidden Messages of the Nilfgaardian Kind"];
-                sq076 [label="High Stakes"];
-                sq077 [label="Honor Among Thieves"];
-                sq079 [label="Karmic Justice"];
-                sq080 [label="Little Red"];
-                sq081 [label="Message from an Old Friend"];
-                sq082 [label="Novigrad Hospitality"];
-                sq083 [label="Novigrad, Closed City"];
-                sq085 [label="Of Dairy and Darkness"];
-                sq086 [label="Of Swords and Dumplings"];
-                sq087 [label="Out On Your Arse!"];
-                sq088 [label="Race: The Great Erasmus Vegelbud Memorial Derby"];
-                sq089 [label="Racists of Novigrad"];
-                sq092 [label="Rough Neigborhood"];
-                sq093 [label="Spooked Mare"];
-                sq094 [label="Strangers in the Night"];
-                sq095 [label="Strumpet in Distress"];
-                sq096 [label="Suspicious Shakedown"];
-                sq097 [label="The Dwarven Document Dilemna"];
-                sq098 [label="The Flame of Hatred"];
-                sq100 [label="The Most Truest of Basilisks"];
-                sq101 [label="The Nobleman Statuette"];
-                sq102 [label="The Price of Passage"];
-                sq103 [label="The Soldier Statuette"];
-                sq104 [label="The Volunteer"];
-                sq105 [label="Warehouse of Woe"];
-                sq106 [label="Witch Hunter Raids"];
-            # Skellige
-                sq107 [label="A Bard's Beloved"];
-                sq108 [label="A Hallowed Horn"];
-                sq109 [label="Abandoned Sawmill"];
-                sq110 [label="An Unpaid Debt"];
-                sq111 [label="Armed Assault"];
-                sq112 [label="Brave Fools Die Young"];
-                sq113 [label="Call of the Wild"];
-                sq114 [label="Coronation"];
-                sq115 [label="Crime and Punishment"];
-                sq116 [label="Farting Trolls"];
-                sq117 [label="Finders Keepers"];
-                sq121 [label="For Fame and Glory"];
-                sq122_a [label="Free Spirit"];
-                sq122_b [label="From a Land Far, Far Away"];
-                sq124 [label="Hard Times"];
-                sq125 [label="In Wolf's Clothing"];
-                sq127 [label="Iron Maiden"];
-                sq128 [label="King's Gambit"];
-                sq129 [label="Master of the Arena"];
-                sq130 [label="Peace Disturbed"];
-                sq131 [label="Possession"];
+            subgraph gwent {
+                subgraph cluster_gwent {
+                    label="Gwent";
+                    style="rounded,filled";
+                    fillcolor=gainsboro;
+                    
+                    sq002 [label="Collect 'Em All"];
+                    
+                    sq004 [label="Gwent: Old Pals"];
+                    sq034 [label="Gwent: Velen Players"];
+                    sq070 [label="Gwent: Big City Players"];
+                    sq071 [label="Gwent: Playing Innkeeps"];
+                    sq072 [label="Gwent: Playing Thaler"];
+                    sq123 [label="Gwent: Skellige Style"];
+                }
                 sq132 [label="Practicum in Advanced Alchemy"];
                 sq133 [label="Shock Therapy"];
-                sq134 [label="Siren's Call"];
-                sq135 [label="Stranger in a Strange Land"];
-                sq136 [label="Taken as a Lass"];
-                sq137 [label="The Cave of Dreams"];
-                sq138 [label="The Family Blade"];
-                sq139 [label="The Four Faces of Hemdall"];
-                sq140 [label="The Heroes' Pursuits: Fayrlund"];
-                sq141 [label="The Heroes' Pursuits: For the Goddess' Glory"];
-                sq142 [label="The Heroes' Pursuits: Fyresdal"];
-                sq143 [label="The Heroes' Pursuits: Kaer Trolde"];
-                sq145 [label="The Lord of Undvik"];
-                sq146 [label="The Nithing"];
-                sq147 [label="The Path of Warriors"];
-                sq148 [label="The Price of Honor"];
-                sq149 [label="The Sad Tale of the Grossbart Brothers"];
-                sq150 [label="The Tower Outta Nowheres"];
-                sq151 [label="Woe is Me"];
-                sq152 [label="Worthy of Trust"];
-                sq153 [label="Yustianna Disturbed"];
-            # Kaer Morhen
-            subgraph cluster_kaer_morhen {
-                label="";
-                color=transparent;
-                style="";
+            }
+            
+            subgraph cluster_no_main_story_connection {
+                label="No main story connections";
+                #color=transparent;
+                #style="";
+                node [color=blue];
                 
-                sq155 [label="Greenhouse Effect"];
-                sq156 [label="Monster Slayer"];
-                sq157 [label="The Bastion"];
-                sq158 [label="The Witchers' Forge"];
-                sq159 [label="Trail of Echoes"];
+                subgraph cluster_multiple_regions {
+                    label="Multiple Regions (no main story constraints)";
+                    #label="";
+                    #color=transparent;
+                    #style="";
+                    subgraph cluster_master_armorer {
+                        label="master armorers";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        sq005 [label="Master Armorers"];
+                        contract11 [label="Contract: The Griffin from the Highlands"];
+                    }
+                    sq001 [label="Black Pearl"];
+                    
+                    dummy1_a [fillcolor=khaki];
+                    { rank="same"; dummy1_a; sq005; sq001; }
+                    dummy1_b [fillcolor=khaki];
+                    { rank="same"; dummy1_b; contract11; }
+                }
+                
+                subgraph cluster_kaer_morhen {
+                    label="Kaer Morhen (no main story constraints)";
+                    #label="";
+                    #color=transparent;
+                    #style="";
+                    
+                    sq155 [label="Greenhouse Effect"];
+                    sq156 [label="Monster Slayer"];
+                    sq157 [label="The Bastion"];
+                    sq158 [label="The Witchers' Forge"];
+                    sq159 [label="Trail of Echoes"];
+                    
+                    dummy2 [fillcolor=khaki];
+                    { rank="same"; dummy2; sq155; sq156; sq157; sq158; sq159; }
+                }
+                
+                subgraph cluster_velen {
+                    label="Velen (no main story constraints)";
+                    #label="";
+                    #color=transparent;
+                    #style="";
+                    node [color=purple];
+                    
+                    sq013 [label="A Dog's Life"];
+                    sq018 [label="At the Mercy of Strangers"]; # done?
+                    sq024 [label="Death By Fire"];
+                    sq021 [label="Caravan Attack"];
+                    sq023 [label="Deadly Crossing"];
+                    sq025 [label="Defender of the Faith"];
+                    sq026 [label="Face Me if You Dare!"];
+                    sq029 [label="Fools' Gold"];
+                    sq032 [label="Funeral Pyres"];
+                    sq035 [label="Harassing a Troll"];
+                    sq036 [label="Hazardous Goods"];
+                    sq037 [label="Highway Robbery"];
+                    sq038 [label="Highwayman's Cache"];
+                    sq040 [label="Looters"];
+                    sq041 [label="Love's Cruel Snares"];
+                    sq044 [label="Man's Best Friend"];
+                    sq045 [label="Races: Crows's Perch"];
+                    sq049 [label="The Truth is in the Stars"];
+                    sq052_b [label="Wild at Heart"];
+                    contract02 [label="Contract: Jenny o' the Woods"];
+                    contract03 [label="Contract: Missing Brother"];
+                    contract04 [label="Contract: Mysterious Tracks"];
+                    contract06 [label="Contract: Phantom of the Trade Route"];
+                    contract07 [label="Contract: Shrieker"];
+                    contract13 [label="Contract: The Mystery of the Byways Murders"];
+                    
+                    subgraph cluster_velen_nilfgaardian_camp {
+                        label="nilfgaardian camp";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        sq020 [label="Blood Ties"];
+                        contract05 [label="Contract: Patrol Gone Missing"];
+                    }
+                    
+                    subgraph cluster_velen_honorton {
+                        label="honorton";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        sq047 [label="Take What You Want"];
+                        sq052_a [label="Where the Cat and Wolf Play..."];
+                        contract09 [label="Contract: The Beast of Honorton"];
+                    }
+                    
+                    subgraph cluster_velen_lindenvale {
+                        label="lindenvale";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        sq053 [label="Witcher Wannabe"];
+                        contract12 [label="Contract: The Merry Widow"];
+                    }
+                    
+                    dummy3_a [fillcolor=khaki];
+                    { rank="same"; dummy3_a; sq013; sq018; sq024; sq021; sq023; sq025; sq026; sq029; sq032; sq035; sq036; sq037; sq038; sq040; sq041;  sq044; sq045; sq049; sq052_b; contract02; contract03; contract04; contract05; contract06; contract07; contract09; contract12; contract13; }
+                    dummy3_b [fillcolor=khaki];
+                    { rank="same"; dummy3_b; sq047; }
+                }
+                
+                subgraph cluster_novigrad {
+                    label="Novigrad (no main story constraints)";
+                    #label="";
+                    #color=transparent;
+                    #style="";
+                    node [color=palevioletred];
+                    
+                    sq006_a [label="Never Trust Children (Novigrad)"];
+                    sq054 [label="A Barnful of Trouble"];
+                    sq060 [label="A Tome Entombed"];
+                    sq062 [label="A Warm Welcome"];
+                    sq066 [label="Drunken Rabble"];
+                    sq067 [label="Empty Coop"];
+                    sq074 [label="Hey, You Wanna Look at my Stuff?"];
+                    sq075 [label="Hidden Messages of the Nilfgaardian Kind"];
+                    sq079 [label="Karmic Justice"];
+                    sq080 [label="Little Red"];
+                    sq081 [label="Message from an Old Friend"];
+                    sq082 [label="Novigrad Hospitality"];
+                    sq085 [label="Of Dairy and Darkness"];
+                    sq086 [label="Of Swords and Dumplings"];
+                    sq089 [label="Racists of Novigrad"];
+                    sq093 [label="Spooked Mare"];
+                    sq094 [label="Strangers in the Night"];
+                    sq095 [label="Strumpet in Distress"];
+                    sq097 [label="The Dwarven Document Dilemna"];
+                    sq098 [label="The Flame of Hatred"];
+                    sq100 [label="The Most Truest of Basilisks"];
+                    sq104 [label="The Volunteer"];
+                    sq105 [label="Warehouse of Woe"];
+                    contract17 [label="Contract: Doors Slamming Shut"];
+                    contract18 [label="Contract: Lord of the Wood"];
+                    contract19 [label="Contract: The Apiarian Phantom"];
+                    contract20 [label="Contract: The Creature from Oxenfurt Forest"];
+                    contract22 [label="Contract: The White Lady"];
+                    
+                    subgraph cluster_novigrad_oxenfurt{
+                        label="oxenfurt";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        sq092 [label="Rough Neigborhood"];
+                        sq102 [label="The Price of Passage"];
+                        contract21 [label="Contract: The Oxenfurt Drunk"];
+                    }
+                    
+                    subgraph cluster_HoS {
+                        label="Hearts of Stone";
+                        style="rounded,filled";
+                        fillcolor=gray50;
+                        
+                        subgraph cluster_HoS_main {
+                            label="Main";
+                            node [fillcolor=white];
+                            
+                            HOSmq1 [label="Evil's Soft First Touches"];
+                            HOSmq2 [label="Dead Man's Party"];
+                            HOSmq3 [label="Open Sesame!"];
+                            HOSmq4 [label="Open Sesame: Witcher Seasonings"];
+                            HOSmq5 [label="Open Sesame: Breaking and Entering"];
+                            HOSmq6 [label="Open Sesame: The Safecracker"];
+                            HOSmq7 [label="Scenes From a Marriage"];
+                            HOSmq8 [label="Whatsoever a Man Soweth..."];
+                        }
+                        
+                        subgraph HOS_side {
+                            HOSsq1 [label="A Midnight Clear"];
+                            HOSsq2 [label="Avid Collector"];
+                            HOSsq3 [label="Enchanting: Quality Has Its Price"];
+                            HOSsq4 [label="Enchanting: Start-up Costs"];
+                            HOSsq5 [label="Races: Swift as the Western Winds"];
+                            HOSsq6 [label="Rose on a Red Field"];
+                            HOSsq7 [label="The Taxman Cometh"];
+                            HOSsq8 [label="Without a Trace"];
+                            # treausure hunts that rely on a quest
+                            HOStreasure [label="A Dark Legacy"];
+                        }
+                        
+                    }
+                    
+                    dummy4_a [fillcolor=khaki];
+                    { rank="same"; dummy4_a; sq006_a; sq054; sq060; sq062; sq066; sq067; sq074; sq075; sq079; sq080; sq081; sq082; sq085; sq086; sq089; sq093; sq094; sq095; sq097; sq098; sq100; sq104; sq105; contract17; contract18; contract19; contract20; contract21; contract22; HOSsq2; HOSsq4; HOSsq5; HOSsq7; HOSsq8; HOSmq1; }
+                    dummy4_b [fillcolor=khaki];
+                    { rank="same"; dummy4_b; HOSmq8; }
+                }
+                
+                subgraph cluster_skellige {
+                    label="Skellige (no main story constraints)";
+                    #label="";
+                    #color=transparent;
+                    #style="";
+                    
+                    node [color=sienna];
+                    
+                    sq006_b [label="Never Trust Children (Skellige)"];
+                    sq107 [label="A Bard's Beloved"];
+                    sq108 [label="A Hallowed Horn"];
+                    sq109 [label="Abandoned Sawmill"];
+                    sq111 [label="Armed Assault"];
+                    sq112 [label="Brave Fools Die Young"];
+                    sq113 [label="Call of the Wild"];
+                    sq115 [label="Crime and Punishment"];
+                    sq116 [label="Farting Trolls"];
+                    sq117 [label="Finders Keepers"];
+                    sq121 [label="For Fame and Glory"];
+                    sq122_a [label="Free Spirit"];
+                    sq122_b [label="From a Land Far, Far Away"];
+                    sq124 [label="Hard Times"];
+                    sq130 [label="Peace Disturbed"];
+                    sq134 [label="Siren's Call"];
+                    sq136 [label="Taken as a Lass"];
+                    sq138 [label="The Family Blade"];
+                    sq140 [label="The Heroes' Pursuits: Fayrlund"];
+                    sq141 [label="The Heroes' Pursuits: For the Goddess' Glory"];
+                    sq142 [label="The Heroes' Pursuits: Fyresdal"];
+                    sq143 [label="The Heroes' Pursuits: Kaer Trolde"];
+                    sq146 [label="The Nithing"];
+                    sq148 [label="The Price of Honor"];
+                    sq149 [label="The Sad Tale of the Grossbart Brothers"];
+                    sq151 [label="Woe is Me"];
+                    sq152 [label="Worthy of Trust"];
+                    sq153 [label="Yustianna Disturbed"];
+                    contract23 [label="Contract: Dragon"];
+                    contract24 [label="Contract: Here Comes the Groom"];
+                    contract26 [label="Contract: Missing Son"];
+                    contract27 [label="Contract: Muire D'yaeblen"];
+                    contract29 [label="Contract: Strange Beast"];
+                    contract31 [label="In the Heart of the Woods"];
+                    
+                    subgraph cluster_skellige_an_skellig {
+                        label="An Skellig";
+                        #label="";
+                        #color=transparent;
+                        #style="";
+                        sq147 [label="The Path of Warriors"];
+                        sq150 [label="The Tower Outta Nowheres"];
+                    }
+                    
+                    dummy5_a [fillcolor=khaki];
+                    { rank="same"; dummy5_a; sq006_b; sq107; sq108; sq109; sq111; sq112; sq113; sq115; sq116; sq117; sq121; sq122_a; sq122_b; sq124; sq130; sq134; sq136; sq138; sq140; sq142; sq143; sq146; sq148; sq149; sq150; sq151; sq152; sq153; contract23; contract24; contract26; contract27; contract29; contract31; }
+                    dummy5_b [fillcolor=khaki];
+                    { rank="same"; dummy5_b; sq141; sq157; }
+                }
+            
+                subgraph fighting {
+                    subgraph cluster_fighting {
+                        label="Fists of Fury";
+                        #label="";
+                        style="rounded,filled";
+                        fillcolor=gainsboro;
+                        
+                        sq028 [label="Fists of Fury: Velen"];
+                        sq069 [label="Fists of Fury: Novigrad"];
+                        sq119 [label="Fists of Fury: Skellige"];
+                        sq118 [label="Fists of Fury: Champion of Champions"];
+                    }
+                    sq127 [label="Iron Maiden"];
+                    sq129 [label="Master of the Arena"];
+                    
+                    dummy6 [fillcolor=khaki];
+                    { rank="same"; dummy6; sq129; sq028; sq069; sq119; }
+                }
+                
+                dummy1_b -> dummy2 [color=khaki];
+                dummy2 -> dummy3_a [color=khaki];
+                dummy3_b -> dummy4_a [color=khaki];
+                dummy4_b -> dummy5_a [color=khaki];
+                dummy5_b -> dummy6 [color=khaki];
+                
             }
         
-        }
-        
-        subgraph contracts {
-            # White Orchard
-            contract01 [label="Contract: Devil by the Well"];
-            # Velen
-            contract02 [label="Contract: Jenny o' the Woods"];
-            contract03 [label="Contract: Missing Brother"];
-            contract04 [label="Contract: Mysterious Tracks"];
-            contract05 [label="Contract: Patrol Gone Missing"];
-            contract06 [label="Contract: Phantom of the Trade Route"];
-            contract07 [label="Contract: Shrieker"];
-            contract08 [label="Contract: Swamp Thing"];
-            contract09 [label="Contract: The Beast of Honorton"];
-            contract11 [label="Contract: The Griffin from the Highlands"];
-            contract12 [label="Contract: The Merry Widow"];
-            contract13 [label="Contract: The Mystery of the Byways Murders"];
-            contract14 [label="Contract: Woodland Beast"];
-            # Novigrad
-            contract15 [label="Contract: An Elusive Thief"];
-            contract16 [label="Contract: Deadly Delights"];
-            contract17 [label="Contract: Doors Slamming Shut"];
-            contract18 [label="Contract: Lord of the Wood"];
-            contract19 [label="Contract: The Apiarian Phantom"];
-            contract20 [label="Contract: The Creature from Oxenfurt Forest"];
-            contract21 [label="Contract: The Oxenfurt Drunk"];
-            contract22 [label="Contract: The White Lady"];
-            # Skellige
-            contract23 [label="Contract: Dragon"];
-            contract24 [label="Contract: Here Comes the Groom"];
-            contract25 [label="Contract: Missing Miners"];
-            contract26 [label="Contract: Missing Son"];
-            contract27 [label="Contract: Muire D'yaeblen"];
-            contract28 [label="Contract: Skellige's Most Wanted"];
-            contract29 [label="Contract: Strange Beast"];
-            contract30 [label="Contract: The Phantom of Eldberg"];
-            contract31 [label="In the Heart of the Woods"];
-        }
-        
-        
-        
-    }
-    
-    subgraph cluster_HoS {
-        label="Hearts of Stone";
-        style="rounded,filled";
-        fillcolor=grey;
-        
-        subgraph cluster_HoS_main {
-            label="Main";
-            node [fillcolor=white];
-            
-            HOSmq1 [label="Evil's Soft First Touches"];
-            HOSmq2 [label="Dead Man's Party"];
-            HOSmq3 [label="Open Sesame!"];
-            HOSmq4 [label="Open Sesame: Witcher Seasonings"];
-            HOSmq5 [label="Open Sesame: Breaking and Entering"];
-            HOSmq6 [label="Open Sesame: The Safecracker"];
-            HOSmq7 [label="Scenes From a Marriage"];
-            HOSmq8 [label="Whatsoever a Man Soweth..."];
-        }
-        
-        subgraph HOS_side {
-            HOSsq1 [label="A Midnight Clear"];
-            HOSsq2 [label="Avid Collector"];
-            HOSsq3 [label="Enchanting: Quality Has Its Price"];
-            HOSsq4 [label="Enchanting: Start-up Costs"];
-            HOSsq5 [label="Races: Swift as the Western Winds"];
-            HOSsq6 [label="Rose on a Red Field"];
-            HOSsq7 [label="The Taxman Cometh"];
-            HOSsq8 [label="Without a Trace"];
-            # treausure hunts that rely on a quest
-            HOStreasure [label="A Dark Legacy"];
         }
         
     }
@@ -478,14 +648,14 @@ digraph G {
     subgraph cluster_BaW {
         label="Blood and Wine";
         style="rounded,filled";
-        fillcolor=grey;
+        fillcolor=gray50;
         
         subgraph cluster_BaW_main {
             label="Main";
             fillcolor=lightgrey;
             node [fillcolor=white];
             
-            { rank=source; BAWmq01 [label="Envoys, Wineboys"]; }
+            { rank="source"; BAWmq01 [label="Envoys, Wineboys"]; }
             
             BAWmq02 [label="The Beast of Toussaint"];
             BAWmq03 [label="Blood Run"];
@@ -502,9 +672,6 @@ digraph G {
             BAWmq14 [label="Pomp and Strange Circumstance"];
             BAWmq15 [label="Burlap is the New Stripe"];
             BAWmq16 [label="Be It Ever So Humble..."];
-            
-            { rank=same; BAWmq10; BAWmq12; } # TODO: add an invisible node between these
-            { rank=same; BAWmq14; BAWmq15; }
         }
         
         subgraph BaW_side {
@@ -547,7 +714,6 @@ digraph G {
                 BAWsq32 [label="Vintner's Contract: Cleaning Those Hard-to-Reach Places"];
                 BAWsq33 [label="Vintner's Contract: Duchaton Crest"];
                 BAWsq34 [label="Vintner's Contract: Dun Tynne Hillside"];
-                BAWsq31 -> BAWsq32 -> BAWsq33 -> BAWsq34 [style=invis]; # align nodes vertically to save space
             }
             subgraph cluster_wine_wars {
                 label="Wine Wars";
@@ -568,133 +734,104 @@ digraph G {
             BAWcontract5 [label="Feet as Cold as Ice"];
         }
         
-        toussaint [label="toussaint"]; # TODO: hide
+        toussaint [label="toussaint",color=maroon]; # TODO: hide
     }
     
 #################################### EDGES #####################################
 
     # align nodes correctly
     
-        # white orchard unlocked
-            mq01 -> white_orchard [style=invis];
-            white_orchard -> mq02 [style=invis];
-            white_orchard -> sq007 [style=invis];
-            white_orchard -> sq009 [style=invis];
-            white_orchard -> sq010 [style=invis];
-            white_orchard -> sq011 [style=invis];
-            white_orchard -> sq012 [style=invis];
+        # prologue
+            mq03 -> mq04 [color=khaki]; # align nodes correctly
+            { rank="same"; mq03; sq010; }
+            # white orchard unlocked
+                mq01 -> white_orchard [color=red];
+                white_orchard -> mq02 [color=red];
+                white_orchard -> sq007 [color=red];
+                white_orchard -> sq009 [color=red];
+                white_orchard -> sq010 [color=red];
+                white_orchard -> sq011 [color=red];
+                white_orchard -> sq012 [color=red];
+    
+        # act 1
+            { rank="same"; mq06; mq17; mq27; }
         
-        # velen unlocked
-            velen -> sq013 [color=steelblue];
-            velen -> sq018 [color=steelblue];
-            velen -> sq021 [color=steelblue];
-            velen -> sq023 [color=steelblue];
-            velen -> sq024 [color=steelblue];
-            velen -> sq025 [color=steelblue];
-            velen -> sq026 [color=steelblue];
-            velen -> sq029 [color=steelblue];
-            velen -> sq032 [color=steelblue];
-            velen -> sq035 [color=steelblue];
-            velen -> sq036 [color=steelblue];
-            velen -> sq037 [color=steelblue];
-            velen -> sq038 [color=steelblue];
-            velen -> sq040 [color=steelblue];
-            velen -> sq041 [color=steelblue];
-            velen -> sq044 [color=steelblue];
-            velen -> sq045 [color=steelblue];
-            velen -> sq049 [color=steelblue];
-            velen -> sq052_b [color=steelblue];
-            
+        # act 1 Velen
+            { rank="same"; mq06; velen; } # velen unlocked with The Nilfgaardian Connection
+            { rank="same"; mq13 -> mq07 [color=khaki]; } # Bloody Baron + Hunting a Witch
+            { mq08 -> mq14 [color=khaki]; } # Ciri's Story: The King of the Wolves + Wandering in the Dark
+            { rank="same"; mq11 -> mq09_b -> mq10 -> mq09_a [color=khaki]; }
+            #{ rank="same";  mq11; mq09_b; mq10; mq09_a; }
+            { rank="same"; mq15; sq050; } # The Whispering Hillock + Ladies of the Wood
         
-        # novigrad unlocked
-            novigrad -> sq054 [color=mediumspringgreen];
-            novigrad -> sq060 [color=mediumspringgreen];
-            novigrad -> sq062 [color=mediumspringgreen];
-            novigrad -> sq067 [color=mediumspringgreen];
-            novigrad -> sq074 [color=mediumspringgreen];
-            novigrad -> sq079 [color=mediumspringgreen];
-            novigrad -> sq080 [color=mediumspringgreen];
-            novigrad -> sq081 [color=mediumspringgreen];
-            novigrad -> sq082 [color=mediumspringgreen];
-            novigrad -> sq085 [color=mediumspringgreen];
-            novigrad -> sq086 [color=mediumspringgreen];
-            novigrad -> sq089 [color=mediumspringgreen];
-            novigrad -> sq093 [color=mediumspringgreen];
-            novigrad -> sq094 [color=mediumspringgreen];
-            novigrad -> sq095 [color=mediumspringgreen];
-            novigrad -> sq097 [color=mediumspringgreen];
-            novigrad -> sq098 [color=mediumspringgreen];
-            novigrad -> sq100 [color=mediumspringgreen];
-            novigrad -> sq104 [color=mediumspringgreen];
-            novigrad -> sq105 [color=mediumspringgreen];
+        # act 1 Novigrad
+            { rank="same"; novigrad; mq17; }
         
-        # skellige unlocked
-            mq27 -> skellige [color=firebrick4];
-            skellige -> sq006 [color=firebrick4];
-            skellige -> sq107 [color=firebrick4];
-            skellige -> sq108 [color=firebrick4];
-            skellige -> sq109 [color=firebrick4];
-            skellige -> sq111 [color=firebrick4];
-            skellige -> sq112 [color=firebrick4];
-            skellige -> sq113 [color=firebrick4];
-            skellige -> sq115 [color=firebrick4];
-            skellige -> sq116 [color=firebrick4];
-            skellige -> sq117 [color=firebrick4];
-            skellige -> sq120 [color=firebrick4];
-            skellige -> sq121 [color=firebrick4];
-            skellige -> sq122_a [color=firebrick4];
-            skellige -> sq122_b [color=firebrick4];
-            skellige -> sq124 [color=firebrick4];
-            skellige -> sq127 [color=firebrick4];
-            skellige -> sq129 [color=firebrick4];
-            skellige -> sq130 [color=firebrick4];
-            skellige -> sq133 [color=firebrick4];
-            skellige -> sq134 [color=firebrick4];
-            skellige -> sq136 [color=firebrick4];
-            skellige -> sq138 [color=firebrick4];
-            skellige -> sq146 [color=firebrick4];
-            skellige -> sq148 [color=firebrick4];
-            skellige -> sq149 [color=firebrick4];
-            skellige -> sq151 [color=firebrick4];
-            skellige -> sq152 [color=firebrick4];
-            skellige -> sq153 [color=firebrick4];
-            
+        # act 1 Skellige
+            { rank="same"; mq27; skellige; }
         
-        
-        mq_act1_end [label="Act I end",fillcolor=red];
         # end of Act 1
-            mq12 -> mq_act1_end [color=red,weight=100]; # align clusters correctly # TODO: hide
-            mq26 -> mq_act1_end [color=red,weight=100]; # align clusters correctly # TODO: hide
-            mq33 -> mq_act1_end [color=red,weight=100]; # align clusters correctly # TODO: hide
-            mq_act1_end:s -> mq34 [color=red,weight=100]; # TODO: hide
+            mq12 -> mq_act1_end [color=red,weight=1000]; # align clusters correctly # TODO: hide
+            mq26 -> mq_act1_end [color=red,weight=1000]; # align clusters correctly # TODO: hide
+            mq33 -> mq_act1_end [color=red,weight=1000]; # align clusters correctly # TODO: hide
+            sq003 -> mq_act1_end [color=khaki];
+            sq144 -> mq_act1_end [color=khaki];
+            { rank="same"; sq003; sq003_a; }
+        # start of Act 1
+            mq_act1_end -> mq34 [color=red,weight=1000]; # TODO: hide
         
-        # kaer morhen unlocked
-            mq34 -> kaer_morhen [color=lightslateblue];
-            kaer_morhen -> sq154 [color=lightslateblue];
-            kaer_morhen -> sq155 [color=lightslateblue];
-            kaer_morhen -> sq156 [color=lightslateblue];
-            kaer_morhen -> sq157 [color=lightslateblue];
-            kaer_morhen -> sq158 [color=lightslateblue];
-            kaer_morhen -> sq159 [color=lightslateblue];
+        # Act 2
+            { rank="same"; mq35; mq36; mq37; }
+            { rank="same"; mq34; kaer_morhen; }
         
-        # toussaint unlocked
-            BAWmq01 -> toussaint [style=invis];
-            toussaint -> BAWsq11 [style=invis];
-            toussaint -> BAWsq17 [style=invis];
-            toussaint -> BAWsq18 [style=invis];
-            toussaint -> BAWsq22 [style=invis];
-            toussaint -> BAWsq27 [style=invis];
-            toussaint -> BAWsq35 [style=invis];
-            toussaint -> BAWsq31 [style=invis];
-            BAWsq27 -> BAWsq18 [style=invis];
-            BAWsq27 -> BAWsq22 [style=invis];
-            BAWsq18 -> BAWsq17 [style=invis];
-            BAWsq22 -> BAWsq11 [style=invis];
-            BAWsq19 -> BAWsq16 [style=invis];
-            BAWsq14 -> BAWsq29 [style=invis];
-            BAWsq12 -> BAWsq01 [style=invis];
-            BAWsq03 -> BAWsq25 [style=invis];
-            BAWsq05 -> BAWsq06 -> BAWsq07 -> BAWsq08 -> BAWsq09 [style=invis];
+        # side quests
+            { rank="same"; sq135; sq137; }
+            { rank="same"; sq091; mq35; }
+            { rank="same"; sq135; sq059 }
+            { rank="same"; sq055; mq41; }
+            { rank="same"; sq131; sq145; }
+            sq091 -> sq063 -> sq056 [color=khaki];
+            sq091 -> dummy_assassin [color=khaki];
+            sq063 -> dummy_assassin [color=khaki];
+            { rank="same"; sq056 -> dummy_assassin [color=khaki]; }
+            dummy_assassin -> sq090 [ltail=cluster_assassin];
+            dummy_assassin -> mq44 [ltail=cluster_assassin,arrowhead=box,style=dotted];
+        
+        # gwent
+            sq002 -> sq004 [color=khaki];
+            sq002 -> sq034 [color=khaki];
+            sq002 -> sq070 [color=khaki];
+            sq002 -> sq071 [color=khaki];
+            sq002 -> sq072 [color=khaki];
+            sq002 -> sq123 [color=khaki];
+            { rank="same"; sq132; sq133; }
+            dummy_gwent [fillcolor=khaki];
+            sq132 -> dummy_gwent [color=khaki];
+            sq133 -> dummy_gwent [color=khaki];
+            dummy_gwent -> sq002 [color=khaki];
+        
+        # Blood and Wine
+            BAWsq27 -> BAWsq18 [color=khaki];
+            BAWsq27 -> BAWsq22 [color=khaki];
+            BAWsq18 -> BAWsq17 [color=khaki];
+            BAWsq22 -> BAWsq11 [color=khaki];
+            BAWsq19 -> BAWsq16 [color=khaki];
+            BAWsq14 -> BAWsq29 [color=khaki];
+            BAWsq12 -> BAWsq01 [color=khaki];
+            BAWsq03 -> BAWsq25 [color=khaki];
+            BAWsq05 -> BAWsq06 -> BAWsq07 -> BAWsq08 -> BAWsq09 [color=khaki];
+            BAWsq31 -> BAWsq32 -> BAWsq33 -> BAWsq34 [color=khaki]; # align nodes vertically to save space
+            { rank="same"; BAWmq10; BAWmq12; } # TODO: add an invisible node between these
+            { rank="same"; BAWmq14; BAWmq15; }
+            # toussaint unlocked
+                BAWmq01 -> toussaint [color=maroon];
+                toussaint -> BAWsq11 [color=maroon];
+                toussaint -> BAWsq17 [color=maroon];
+                toussaint -> BAWsq18 [color=maroon];
+                toussaint -> BAWsq22 [color=maroon];
+                toussaint -> BAWsq27 [color=maroon];
+                toussaint -> BAWsq35 [color=maroon];
+                toussaint -> BAWsq31 [color=maroon];
             
     
     ################################ BASE GAME #################################
@@ -707,7 +844,7 @@ digraph G {
                 mq01 -> mq02 [weight=300,penwidth=2.5];
             
             # mq02
-                mq02 -> sq002 [arrowhead=empty,lhead=cluster_gwent];
+                mq02 -> sq002 [arrowhead=empty];
                 mq02 -> mq03 [arrowhead=empty,penwidth=2]; # griffin subquest
                 mq03 -> mq02 [arrowhead=inv,constraint=false,penwidth=2]; # continue after griffin subquest
                 sq007 -> mq02 [arrowhead=obox,style=dotted];
@@ -719,7 +856,6 @@ digraph G {
             
             # mq03
                 mq03 -> sq010 [arrowhead=empty];
-                mq03 -> mq04 [style=invis]; # align nodes correctly
             
             # mq04
                 mq04 -> mq05 [weight=300,penwidth=2.5];
@@ -736,47 +872,47 @@ digraph G {
             # Velen
                 
                 # mq06
-                    mq06 -> mq07; # Bloody Baron storyline
-                    mq06 -> mq13; # Keira Metz storyline
+                    mq06 -> mq07 [weight=10,penwidth=2.5]; # Bloody Baron storyline
+                    mq06 -> mq13 [weight=10,penwidth=2.5]; # Keira Metz storyline
                 
                 # mq07
-                    mq07 -> mq08;
+                    mq07 -> mq08 [weight=10,penwidth=2.5];
                 
                 # mq08
-                    mq08 -> mq09;
-                    mq08 -> sq022;
+                    mq08 -> mq09 [weight=10,penwidth=2.5];
+                    mq08 -> sq022 [weight=100];
                 
                 # mq09
-                    #sq016 -> mq09 [arrowhead=halfopen]; # If completed, Pellar will directly approach to give quest (can still be found otherwise)
-                    sq027 -> mq09 [arrowhead=halfopen,weight=100]; # If completed, can use fake transit pass to get into Oxenfurt
-                    contract14 -> mq09 [arrowhead=halfopen]; # If rewarded with papers, can use those to get into Oxenfurt
-                    mq09 -> mq10 [arrowhead=invempty]; # goat subquest
-                    mq10 -> mq09 [arrowhead=inv];
-                    mq09 -> mq11 [arrowhead=invempty]; # ciri interlude
-                    mq11 -> mq09 [arrowhead=inv];
-                    mq09 -> mq09_b [arrowhead=empty,weight=100]; # find Tamara subquest
-                    mq09 -> mq09_a [arrowhead=empty,weight=100]; # find Anna subquest
+                    #sq016 -> mq09 [arrowhead=halfopen,color=azure4]; # If completed, Pellar will directly approach to give quest (can still be found otherwise)
+                    sq027 -> mq09 [arrowhead=halfopen,color=azure4,weight=100]; # If completed, can use fake transit pass to get into Oxenfurt
+                    contract14 -> mq09 [arrowhead=halfopen,color=azure4]; # If rewarded with papers, can use those to get into Oxenfurt
+                    mq09 -> mq10 [arrowhead=invempty,weight=10,penwidth=2]; # goat subquest
+                    mq10 -> mq09 [arrowhead=inv,penwidth=2];
+                    mq09 -> mq11 [arrowhead=invempty,weight=10,penwidth=2]; # ciri interlude
+                    mq11 -> mq09 [arrowhead=inv,penwidth=2];
+                    mq09 -> mq09_b [arrowhead=empty,weight=100,penwidth=2]; # find Tamara subquest
+                    mq09 -> mq09_a [arrowhead=empty,weight=100,penwidth=2.5]; # find Anna subquest
                 
                 # mq09_a - storylines merge during the search for Anna
-                    mq16 -> mq09_a [arrowhead=inv]; # found Anna
+                    mq16 -> mq09_a [arrowhead=inv,penwidth=2]; # found Anna
                     mq09_b -> mq09_a [arrowhead=obox,style=dotted,constraint=false];
-                    mq09_a -> mq12;
+                    mq09_a -> mq12 [weight=100,penwidth=2.5];
                 
                 # mq12 - Act 1 main story for Velen ends
                     mq12 -> sq046; # Baron storyline continues in sidequest
                 
                 # mq13
-                    mq13 -> mq14;
+                    mq13 -> mq14 [weight=100,penwidth=2.5];
                 
                 # mq14
-                    mq14 -> mq15;
+                    mq14 -> mq15 [weight=100,penwidth=2.5];
                     mq14 -> sq043; # magic Lamp storyline
                     mq14 -> contract08;
                 
                 # mq15
-                    mq15 -> sq050 [arrowhead=invempty,constraint=false]; # whispering hillock subquest (already available earlier)
-                    sq050 -> mq15 [arrowhead=inv];
-                    mq15 -> mq16;
+                    mq15 -> sq050 [arrowhead=invempty,weight=10,penwidth=2]; # whispering hillock subquest (already available earlier)
+                    sq050 -> mq15 [arrowhead=inv,penwidth=2];
+                    mq15 -> mq16 [weight=100,penwidth=2.5];
             
             # Novigrad
                 
@@ -792,7 +928,7 @@ digraph G {
                 
                 # mq19
                     mq19 -> mq20;
-                    mq19 -> sq057 [constraint=false];
+                    mq19 -> sq057;
                     mq19 -> sq068;
                     
                 # mq20
@@ -803,11 +939,11 @@ digraph G {
                     mq20 -> mq20_c [arrowhead=empty]; # casino storyline
                     
                 # mq20_b
-                    sq099 -> mq20_b [arrowhead=halfopen]; # can work with cleaver's men to raid arena
+                    sq099 -> mq20_b [arrowhead=halfopen,color=azure4]; # can work with cleaver's men to raid arena
                     mq20_b -> mq20_d;
                     
                 # mq20_c
-                    sq099 -> mq20_c [arrowhead=halfopen]; # can work with cleaver's men to raid arena
+                    sq099 -> mq20_c [arrowhead=halfopen,color=azure4]; # can work with cleaver's men to raid arena
                     mq20_c -> mq20_d;
                     mq20_c -> sq077;
                 
@@ -839,11 +975,11 @@ digraph G {
                     mq24 -> mq25;
                 
                 # mq25
-                    mq22 -> mq25 [arrowhead=halfopen]; # depends on whether you found Dijkstra's treasure
+                    mq22 -> mq25 [arrowhead=halfopen,color=azure4]; # depends on whether you found Dijkstra's treasure
                     mq25 -> mq26;
                 
                 # mq26 - Act 1 main story for Novigrad ends
-                    mq26 -> sq064; # Dandelion storyline continues in sidequest
+                    mq26 -> sq064 [weight=50]; # Dandelion storyline continues in sidequest
                     mq26 -> BAWmq01; # begins Blood and Wine DLC
             
             # mq27
@@ -870,7 +1006,7 @@ digraph G {
                 mq32 -> sq144;
             
             # mq33
-                mq09_a -> mq33 [arrowhead=halfopen,constraint=false]; # already having met Uma skips this quest
+                mq09_a -> mq33 [arrowhead=halfopen,color=azure4,constraint=false]; # already having met Uma skips this quest
         
         # Act 1 -> Act 2
             
@@ -883,15 +1019,15 @@ digraph G {
             # mq34
                 sq003 -> mq34 [arrowhead=box,style=dotted];
                 sq144 -> mq34 [arrowhead=box,style=dotted];
-                mq12 -> mq34 [arrowhead=halfopen];
-                mq34 -> mq35 [arrowhead=invempty]; # subquest with Yennefer and Vesemir (ideally done first)
-                mq34 -> mq36 [arrowhead=invempty]; # subquest with Eskel
-                mq34 -> mq37 [arrowhead=invempty]; # subquest with Lambert
-                mq38 -> mq34 [arrowhead=inv]; # last subquest before continuing Ugly Baby
-                mq34 -> mq39;
+                mq12 -> mq34 [arrowhead=halfopen,color=azure4];
+                mq34 -> mq35 [arrowhead=empty]; # subquest with Yennefer and Vesemir (ideally done first)
+                mq34 -> mq36 [arrowhead=empty]; # subquest with Eskel
+                mq34 -> mq37 [arrowhead=empty]; # subquest with Lambert
+                mq38 -> mq34_b; # last subquest before continuing Ugly Baby
+                mq34_b -> mq39;
             
             # mq35
-                sq144 -> mq35 [arrowhead=halfopen];
+                sq144 -> mq35 [arrowhead=halfopen,color=azure4];
                 mq35 -> mq38;
             
             # mq36
@@ -905,22 +1041,20 @@ digraph G {
                 mq39 -> mq41;
                 mq39 -> mq42;
                 mq39 -> mq43;
-                mq39 -> mq44;
+                mq39 -> mq44 [weight=500];
             
             # mq40
-                sq033 -> mq40 [arrowhead=halfopen]; # depends on whether you let Letho live
+                sq033 -> mq40 [arrowhead=halfopen,color=azure4]; # depends on whether you let Letho live
                 sq030 -> mq40 [arrowhead=inv];
             
             # mq41
-                mq22_a -> mq41 [arrowhead=halfopen]; # depends on whether you found Dijkstra's treasure
+                mq22_a -> mq41 [arrowhead=halfopen,color=azure4]; # depends on whether you found Dijkstra's treasure
                 sq063 -> mq41 [arrowhead=inv];
                 sq084 -> mq41 [arrowhead=inv];
                 sq055 -> mq41 [arrowhead=obox,style=dotted];
             
             # mq42
-                sq114 -> mq42 [arrowhead=inv];
-                sq131 -> mq42 [arrowhead=inv];
-                sq145 -> mq42 [arrowhead=inv];
+                sq114 -> mq42 [arrowhead=inv,ltail=cluster_skellige_inheritance];
             
             # mq44
             
@@ -938,18 +1072,15 @@ digraph G {
                 sq046 -> mq44 [arrowhead=box,style=dotted];
                 sq048 -> mq44 [arrowhead=box,style=dotted];
                 sq055 -> mq44 [arrowhead=box,style=dotted];
-                sq056 -> mq44 [arrowhead=box,style=dotted];
+                sq056 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
                 sq059 -> mq44 [arrowhead=box,style=dotted];
-                sq063 -> mq44 [arrowhead=box,style=dotted];
+                sq063 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
                 sq064 -> mq44 [arrowhead=box,style=dotted];
                 sq065 -> mq44 [arrowhead=box,style=dotted];
                 sq068 -> mq44 [arrowhead=box,style=dotted];
                 sq084 -> mq44 [arrowhead=box,style=dotted];
-                sq091 -> mq44 [arrowhead=box,style=dotted];
-                sq114 -> mq44 [arrowhead=box,style=dotted];
-                sq128 -> mq44 [arrowhead=box,style=dotted];
-                sq131 -> mq44 [arrowhead=box,style=dotted];
-                sq145 -> mq44 [arrowhead=box,style=dotted]; # TODO: not according the quest's page on the wiki? probably bc 128 is cut off here
+                sq091 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
+                sq114 -> mq44 [arrowhead=box,style=dotted,ltail=cluster_cerys_hjalmar];
                 sq154 -> mq44 [arrowhead=box,style=dotted];
                 mq44 -> mq45;
             
@@ -984,9 +1115,10 @@ digraph G {
             # mq49
                 mq49 -> sq058 [arrowhead=empty]; # if Keira Metz died
                 mq49 -> sq090 [arrowhead=empty];
+                sq058 -> mq49 [arrowhead=obox,style=dotted];
             
             # mq50
-                sq084 -> mq50 [arrowhead=halfopen];
+                sq084 -> mq50 [arrowhead=halfopen,color=azure4];
             
             # mq52
                 mq52 -> mq51 [arrowhead=empty]; # if not yet started # TODO figure out a new edge type for this
@@ -1017,9 +1149,9 @@ digraph G {
                 mq59 -> mq60;
             
             # mq60
-                mq46 -> mq60 [arrowhead=halfopen]; # affects the ending
-                mq48 -> mq60 [arrowhead=halfopen]; # affects the ending
-                mq56 -> mq60 [arrowhead=halfopen]; # affects the ending
+                mq46 -> mq60 [arrowhead=halfopen,color=azure4]; # affects the ending
+                mq48 -> mq60 [arrowhead=halfopen,color=azure4]; # affects the ending
+                mq56 -> mq60 [arrowhead=halfopen,color=azure4]; # affects the ending
                 mq60 -> sq008 [arrowhead=empty];
                 sq008 -> mq60 [arrowhead=obox,style=dotted];
                 mq60 -> BAWmq16;
@@ -1030,23 +1162,23 @@ digraph G {
             
             # sq002
                 
-                sq055 -> sq002 [arrowhead=inv,constraint=false];
-                sq056 -> sq002 [arrowhead=inv,constraint=false];
-                sq059 -> sq002 [arrowhead=inv,constraint=false];
-                sq076 -> sq002 [arrowhead=inv,constraint=false];
-                sq133 -> sq002 [arrowhead=inv,constraint=false];
+                sq055 -> sq002 [lhead=cluster_gwent,arrowhead=inv,color=goldenrod];
+                sq056 -> sq002 [lhead=cluster_gwent,arrowhead=inv,constraint=false,color=goldenrod];
+                sq059 -> sq002 [lhead=cluster_gwent,arrowhead=inv,constraint=false,color=goldenrod];
+                sq076 -> sq002 [lhead=cluster_gwent,arrowhead=inv,constraint=false,color=goldenrod];
+                sq133 -> sq002 [lhead=cluster_gwent,arrowhead=inv,color=goldenrod];
             
             # sq004 
-                sq056 -> sq004 [arrowhead=halfopen]; # if completed prior to playing Roche, Thaler will be played as part of this quest
+                sq056 -> sq004 [arrowhead=halfopen,color=azure4]; # if completed prior to playing Roche, Thaler will be played as part of this quest
             
             # sq071
-                sq084 -> sq071 [arrowhead=halfopen]; # depends on if Olivier died
+                sq084 -> sq071 [arrowhead=halfopen,color=azure4]; # depends on if Olivier died
             
             # sq072
-                sq004 -> sq072 [arrowhead=halfopen]; # if A Deadly Plot is completed before playing Roche, this quest will be skipped
+                sq004 -> sq072 [arrowhead=halfopen,color=azure4]; # if A Deadly Plot is completed before playing Roche, this quest will be skipped
             
             # sq076
-                sq084 -> sq076 [arrowhead=halfopen]; # if romancing Sasha after A Matter of Life and Death but before Now or Never, a minor bug can occur
+                sq084 -> sq076 [arrowhead=halfopen,color=azure4]; # if romancing Sasha after A Matter of Life and Death but before Now or Never, a minor bug can occur
             
             # sq123
                 mq29 -> sq123 [arrowhead=inv];
@@ -1055,77 +1187,71 @@ digraph G {
     
     ################ SIDE QUESTS ################
     
-    
-    # sq001
-        mq27 -> sq001 [arrowhead=inv];
-    
     # sq003
         sq003 -> sq003_a [arrowhead=invempty];
         sq003_a -> sq003 [arrowhead=inv,constraint=false];
-    
     # sq003_a
         sq120 -> sq003_a [arrowhead=box,style=dotted];
     # sq005
         sq005 -> contract11 [arrowhead=invempty];
         contract11 -> sq005 [arrowhead=inv];
-        mq27 -> sq005 [arrowhead=inv];
     # sq006
-        sq006 -> sq075 [arrowhead=empty];
+        sq006_a -> sq075 [arrowhead=empty];
     # sq014
         sq042 -> sq014 [arrowhead=box,style=dotted];
         sq014 -> sq030;
     # sq015
-        mq14 -> sq015 [arrowhead=inv];
+        mq14 -> sq015 [arrowhead=inv,weight=5];
     # sq016
         sq016 -> sq014;
         sq016 -> sq031;
     # sq017
         sq017 -> sq016;
     # sq020
-        contract05 -> sq020 [arrowhead=halfopen];
+        contract05 -> sq020 [arrowhead=halfopen,color=azure4];
     # sq027
-        sq019 -> sq027 [arrowhead=halfopen];
+        sq019 -> sq027 [arrowhead=halfopen,color=azure4];
     # sq028
         sq028 -> sq118;
     # sq039
-        sq017 -> sq039 [arrowhead=halfopen];
+        sq017 -> sq039 [arrowhead=halfopen,color=azure4];
     # sq043
         sq043 -> sq017;
+    # sq047
+        sq052_a -> sq047 [arrowhead=box,style=dotted];
     # sq048
-        sq033 -> sq048 [arrowhead=halfopen];
+        sq033 -> sq048 [arrowhead=halfopen,color=azure4];
     # sq051
-        mq09 -> sq051 [arrowhead=halfopen,weight=100];
-        contract14 -> sq051 [arrowhead=halfopen,weight=100];
-        sq027 -> sq051 [arrowhead=halfopen,weight=100];
+        mq09 -> sq051 [arrowhead=halfopen,color=azure4,weight=100,constraint=false];
+        contract14 -> sq051 [arrowhead=halfopen,color=azure4,weight=100];
+        sq027 -> sq051 [arrowhead=halfopen,color=azure4,weight=1000];
     # sq052_a
         sq052_a -> sq047 [arrowhead=empty];
     # sq056
         sq056 -> sq072 [arrowhead=empty];
-        sq056 -> sq090;
-    # sq057
-        sq057 -> sq068 [style=invis];
+        sq056 -> sq090 [constraint=false,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
     # sq058
-        sq030 -> sq058 [arrowhead=halfopen]; # if Keira went to Radovid
+        sq030 -> sq058 [arrowhead=halfopen,color=azure4]; # if Keira went to Radovid
     # sq059
         sq059 -> sq083;
         sq059 -> sq084;
     # sq063
-        sq063 -> sq090;
+        sq063 -> sq090 [constraint=false,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
     # sq064
         sq064 -> sq065;
     # sq069
         sq069 -> sq118;
     # sq078
-        sq084 -> sq078 [arrowhead=halfopen]; # if Triss was not romanced, this quest is skipped
-        sq144 -> sq078 [arrowhead=halfopen]; # if Yennefer was not romanced, this quest is skipped
+        sq084 -> sq078 [arrowhead=halfopen,color=azure4]; # if Triss was not romanced, this quest is skipped
+        sq144 -> sq078 [arrowhead=halfopen,color=azure4]; # if Yennefer was not romanced, this quest is skipped
     # sq084
         sq106 -> sq084 [arrowhead=box,style=dotted];
         sq084 -> sq056;
     # sq087
-        sq145 -> sq087 [arrowhead=halfopen]; # if completed, another dialogue option becomes available
+        sq145 -> sq087 [arrowhead=halfopen,color=azure4]; # if completed, another dialogue option becomes available
     # sq091
         sq091 -> sq084;
-        sq091 -> sq090;
+        sq091 -> sq090 [constraint=false,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
     # sq096
         sq096 -> sq057 [weight=10];
     # sq118
@@ -1133,21 +1259,21 @@ digraph G {
     # sq199
         sq119 -> sq118;
     # sq127
-        sq119 -> sq127 [arrowhead=halfopen]; # if Olaf has been defeated
+        sq119 -> sq127 [arrowhead=halfopen,color=azure4]; # if Olaf has been defeated
     # sq128
         sq135 -> sq128 [arrowhead=box,style=dotted];
         sq137 -> sq128 [arrowhead=obox,style=dotted];
-        sq128 -> sq114;
+        sq128 -> sq114 [weight=20];
     # sq131
         sq131 -> sq128;
     # sq135
-        sq137 -> sq135 [arrowhead=halfopen];
+        sq137 -> sq135 [arrowhead=halfopen,color=azure4];
         sq135 -> sq110; # if Simun Brambling helped
     # sq137
-        sq135 -> sq137 [arrowhead=halfopen];
+        sq135 -> sq137 [arrowhead=halfopen,color=azure4];
         sq137 -> sq110;
     # sq139
-        sq003 -> sq139 [arrowhead=halfopen];
+        sq003 -> sq139 [arrowhead=halfopen,color=azure4];
     # sq141
         sq140 -> sq141 [arrowhead=inv];
         sq142 -> sq141 [arrowhead=inv];
@@ -1164,21 +1290,21 @@ digraph G {
     # contract12
         contract12 -> sq053;
     # contract15
-        mq22_a -> contract15 [arrowhead=halfopen]; # If completed but next main quest is not finished, additional dialogue option is available (don't choose it)
+        mq22_a -> contract15 [arrowhead=halfopen,color=azure4]; # If completed but next main quest is not finished, additional dialogue option is available (don't choose it)
     # contract16
         contract16 -> sq087;
     # contract21
         contract21 -> sq102 [arrowhead=empty];
         contract21 -> sq092;
     # contract28
-        mq15 -> contract28 [arrowhead=halfopen];
-        mq18 -> contract28 [arrowhead=halfopen];
-        mq37 -> contract28 [arrowhead=halfopen];
-        sq015 -> contract28 [arrowhead=halfopen];
-        sq125 -> contract28 [arrowhead=halfopen];
-        contract15 -> contract28 [arrowhead=halfopen];
-        contract16 -> contract28 [arrowhead=halfopen];
-        contract25 -> contract28 [arrowhead=halfopen];
+        mq15 -> contract28 [arrowhead=halfopen,color=azure4];
+        mq18 -> contract28 [arrowhead=halfopen,color=azure4];
+        mq37 -> contract28 [arrowhead=halfopen,color=azure4];
+        sq015 -> contract28 [arrowhead=halfopen,color=azure4];
+        sq125 -> contract28 [arrowhead=halfopen,color=azure4];
+        contract15 -> contract28 [arrowhead=halfopen,color=azure4];
+        contract16 -> contract28 [arrowhead=halfopen,color=azure4];
+        contract25 -> contract28 [arrowhead=halfopen,color=azure4];
     # contract30
         contract30 -> sq135;
     
@@ -1206,7 +1332,7 @@ digraph G {
             HOSmq3 -> HOSmq7;
         
         # HOSmq6
-            contract20 -> HOSmq6 [arrowhead=halfopen];
+            contract20 -> HOSmq6 [arrowhead=halfopen,color=azure4];
         
         # HOSmq7
             HOSsq1 -> HOSmq7 [arrowhead=box,style=dotted];
@@ -1274,8 +1400,8 @@ digraph G {
             BAWmq13 -> BAWmq15 [arrowhead=empty,weight=10,penwidth=2.5];
         
         # BAWmq14
-            BAWmq12 -> BAWmq14 [arrowhead=halfopen];
-            BAWmq10 -> BAWmq14 [arrowhead=halfopen];
+            BAWmq12 -> BAWmq14 [arrowhead=halfopen,color=azure4];
+            BAWmq10 -> BAWmq14 [arrowhead=halfopen,color=azure4];
             BAWmq14 -> BAWmq16 [weight=2,penwidth=2.5];
         
         # BAWmq15
@@ -1301,7 +1427,7 @@ digraph G {
             BAWsq13 -> BAWsq23;
         
         # BAWsq16
-            BAWsq15 -> BAWsq16 [arrowhead=halfopen];
+            BAWsq15 -> BAWsq16 [arrowhead=halfopen,color=azure4];
             BAWsq16 -> BAWsq15 [arrowhead=empty];
         
         # BAWsq26
@@ -1309,40 +1435,40 @@ digraph G {
             BAWsq26 -> BAWsq21;
         
         # BAWsq28
-            BAWmq02 -> BAWsq28 [arrowhead=halfopen];
-            BAWmq03 -> BAWsq28 [arrowhead=halfopen];
-            BAWmq04 -> BAWsq28 [arrowhead=halfopen];
-            BAWmq05:e -> BAWsq28 [arrowhead=halfopen];
-            BAWmq08 -> BAWsq28 [arrowhead=halfopen];
-            BAWmq09 -> BAWsq28 [arrowhead=halfopen];
-            BAWmq10 -> BAWsq28 [arrowhead=halfopen];
-            BAWmq13 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq01 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq02 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq12 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq14 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq16 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq19 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq23 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq24 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq26 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq29 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq30 -> BAWsq28 [arrowhead=halfopen];
-            BAWsq28 -> BAWcontract1 [arrowtail=halfopen,dir="back"];
-            BAWsq28 -> BAWcontract2 [arrowtail=halfopen,dir="back"];
-            BAWsq28 -> BAWcontract3 [arrowtail=halfopen,dir="back"];
-            BAWsq28 -> BAWcontract4 [arrowtail=halfopen,dir="back"];
-            BAWsq28 -> BAWcontract5 [arrowtail=halfopen,dir="back"];
+            BAWmq02 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWmq03 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWmq04 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWmq05:e -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWmq08 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWmq09 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWmq10 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWmq13 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq01 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq02 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq12 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq14 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq16 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq19 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq23 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq24 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq26 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq29 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq30 -> BAWsq28 [arrowhead=halfopen,color=azure4];
+            BAWsq28 -> BAWcontract1 [arrowtail=halfopen,color=azure4,dir="back"];
+            BAWsq28 -> BAWcontract2 [arrowtail=halfopen,color=azure4,dir="back"];
+            BAWsq28 -> BAWcontract3 [arrowtail=halfopen,color=azure4,dir="back"];
+            BAWsq28 -> BAWcontract4 [arrowtail=halfopen,color=azure4,dir="back"];
+            BAWsq28 -> BAWcontract5 [arrowtail=halfopen,color=azure4,dir="back"];
         
         # BAWsq35
-            BAWsq36 -> BAWsq35 [arrowhead=halfopen,constraint=false];
-            BAWsq38 -> BAWsq35 [arrowhead=halfopen,constraint=false];
+            BAWsq36 -> BAWsq35 [arrowhead=halfopen,color=azure4,constraint=false];
+            BAWsq38 -> BAWsq35 [arrowhead=halfopen,color=azure4,constraint=false];
             BAWsq35 -> BAWsq37 [arrowhead=invempty];
             BAWsq35 -> BAWsq39 [arrowhead=invempty];
         
         # BAWsq36
-            BAWsq37 -> BAWsq36 [arrowhead=halfopen];
-            BAWsq39 -> BAWsq36 [arrowhead=halfopen];
+            BAWsq37 -> BAWsq36 [arrowhead=halfopen,color=azure4];
+            BAWsq39 -> BAWsq36 [arrowhead=halfopen,color=azure4];
         
         # BAWsq37
             BAWsq37 -> BAWsq38 [arrowhead=empty];
