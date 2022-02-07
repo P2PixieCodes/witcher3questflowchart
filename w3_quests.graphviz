@@ -14,9 +14,11 @@ digraph G {
         
         subgraph cluster_prologue_to_act3 {
             style="rounded,filled";
-            fillcolor=white;
+            color=transparent;
+            fillcolor=transparent;
             
             subgraph cluster_prologue_to_act2 {
+                color=transparent;
                 
                 subgraph cluster_prologue {
                     label="Prologue";
