@@ -726,21 +726,23 @@ digraph G {
             { rank="same"; mq13 -> mq07 [style=invis]; } # Bloody Baron + Hunting a Witch
             { mq08 -> mq14 [style=invis]; } # Ciri's Story: The King of the Wolves + Wandering in the Dark
             { rank="same"; mq11 -> mq09_b -> mq10 -> mq09_a [style=invis]; }
-            #{ rank="same";  mq11; mq09_b; mq10; mq09_a; }
             { rank="same"; mq15; sq050; } # The Whispering Hillock + Ladies of the Wood
         
         # end of Act 1
-            mq12 -> mq_act1_end [style=invis,weight=1000]; # align clusters correctly # TODO: hide
-            mq26 -> mq_act1_end [style=invis,weight=1000]; # align clusters correctly # TODO: hide
-            mq33 -> mq_act1_end [style=invis,weight=1000]; # align clusters correctly # TODO: hide
+            mq12 -> mq_act1_end [style=invis,weight=1000]; # align clusters correctly
+            mq26 -> mq_act1_end [style=invis,weight=1000]; # align clusters correctly
+            mq33 -> mq_act1_end [style=invis,weight=1000]; # align clusters correctly
             sq003 -> mq_act1_end [style=invis];
             sq144 -> mq_act1_end [style=invis];
             { rank="same"; sq003; sq003_a; }
         # start of Act 1
-            mq_act1_end -> mq34 [style=invis,weight=1000]; # TODO: hide
+            mq_act1_end -> mq34 [style=invis,weight=1000];
         
         # Act 2
             { rank="same"; mq35; mq36; mq37; }
+        
+        # Act 3
+            mq56 -> mq58 [style=invis];
         
         # side quests
             { rank="same"; sq135; sq137; }
@@ -802,7 +804,7 @@ digraph G {
         # Prologue
             
             # mq01
-                mq01 -> mq02 [weight=300,penwidth=2.5];
+                mq01 -> mq02 [weight=300,penwidth=2.75];
             
             # mq02
                 mq02 -> sq002 [arrowhead=empty];
@@ -813,99 +815,99 @@ digraph G {
                 sq010 -> mq02 [arrowhead=obox,style=dotted];
                 sq011 -> mq02 [arrowhead=obox,style=dotted];
                 sq012 -> mq02 [arrowhead=obox,style=dotted];
-                mq02 -> mq04 [weight=200,penwidth=2.5];
+                mq02 -> mq04 [weight=200,penwidth=2.75];
             
             # mq03
                 mq03 -> sq010 [arrowhead=empty];
             
             # mq04
-                mq04 -> mq05 [weight=300,penwidth=2.5];
+                mq04 -> mq05 [weight=300,penwidth=2.75];
         
         # Prologue -> Act 1
             
             # mq05
-                mq05 -> mq06 [lhead=cluster_act1_velen,weight=10,penwidth=2.5]; # Act 1 Velen
-                mq05 -> mq17 [lhead=cluster_act1_novigrad,weight=10,penwidth=2.5]; # Act 1 Novigrad
-                mq05 -> mq27 [lhead=cluster_act1_skellige,weight=10,penwidth=2.5]; # Act 1 Skellige
+                mq05 -> mq06 [lhead=cluster_act1_velen,weight=10,penwidth=2.75]; # Act 1 Velen
+                mq05 -> mq17 [lhead=cluster_act1_novigrad,weight=10,penwidth=2.75]; # Act 1 Novigrad
+                mq05 -> mq27 [lhead=cluster_act1_skellige,weight=10,penwidth=2.75]; # Act 1 Skellige
         
         # Act 1
         
             # Velen
                 
                 # mq06
-                    mq06 -> mq07 [weight=10,penwidth=2.5]; # Bloody Baron storyline
-                    mq06 -> mq13 [weight=10,penwidth=2.5]; # Keira Metz storyline
+                    mq06 -> mq07 [weight=10,penwidth=2.75]; # Bloody Baron storyline
+                    mq06 -> mq13 [weight=10,penwidth=2.75]; # Keira Metz storyline
                 
                 # mq07
-                    mq07 -> mq08 [weight=10,penwidth=2.5];
+                    mq07 -> mq08 [weight=10,penwidth=2.75];
                 
                 # mq08
-                    mq08 -> mq09 [weight=10,penwidth=2.5];
+                    mq08 -> mq09 [weight=10,penwidth=2.75];
                     mq08 -> sq022 [weight=100];
                 
                 # mq09
-                    #sq016 -> mq09 [arrowhead=halfopen,color=azure4]; # If completed, Pellar will directly approach to give quest (can still be found otherwise)
-                    sq027 -> mq09 [arrowhead=halfopen,color=azure4,weight=100]; # If completed, can use fake transit pass to get into Oxenfurt
-                    contract14 -> mq09 [arrowhead=halfopen,color=azure4]; # If rewarded with papers, can use those to get into Oxenfurt
-                    mq09 -> mq10 [arrowhead=invempty,weight=10,penwidth=2]; # goat subquest
-                    mq10 -> mq09 [arrowhead=inv,penwidth=2];
-                    mq09 -> mq11 [arrowhead=invempty,weight=10,penwidth=2]; # ciri interlude
-                    mq11 -> mq09 [arrowhead=inv,penwidth=2];
+                    #sq016 -> mq09 [arrowhead=halfopen,color=gray35]; # If completed, Pellar will directly approach to give quest (can still be found otherwise)
+                    sq027 -> mq09 [arrowhead=halfopen,color=gray35,weight=100]; # If completed, can use fake transit pass to get into Oxenfurt
+                    contract14 -> mq09 [arrowhead=halfopen,color=gray35]; # If rewarded with papers, can use those to get into Oxenfurt
+                    mq09 -> mq10 [arrowhead=empty,weight=10,penwidth=2]; # goat subquest
+                    mq10 -> mq09 [arrowhead=inv];
+                    mq09 -> mq11 [arrowhead=empty,weight=10,penwidth=2]; # ciri interlude
+                    mq11 -> mq09 [arrowhead=inv];
                     mq09 -> mq09_b [arrowhead=empty,weight=100,penwidth=2]; # find Tamara subquest
-                    mq09 -> mq09_a [arrowhead=empty,weight=100,penwidth=2.5]; # find Anna subquest
+                    mq09 -> mq09_a [arrowhead=empty,weight=100,penwidth=2.75]; # find Anna subquest
                 
                 # mq09_a - storylines merge during the search for Anna
-                    mq16 -> mq09_a [arrowhead=inv,penwidth=2]; # found Anna
+                    mq16 -> mq09_a [arrowhead=inv,penwidth=2.75]; # found Anna
                     mq09_b -> mq09_a [arrowhead=obox,style=dotted,constraint=false];
-                    mq09_a -> mq12 [weight=100,penwidth=2.5];
+                    mq09_a -> mq12 [weight=100,penwidth=2.75];
                 
                 # mq12 - Act 1 main story for Velen ends
                     mq12 -> sq046; # Baron storyline continues in sidequest
                 
                 # mq13
-                    mq13 -> mq14 [weight=100,penwidth=2.5];
+                    mq13 -> mq14 [weight=100,penwidth=2.75];
                 
                 # mq14
-                    mq14 -> mq15 [weight=100,penwidth=2.5];
+                    mq14 -> mq15 [weight=100,penwidth=2.75];
                     mq14 -> sq043; # magic Lamp storyline
                     mq14 -> contract08;
                 
                 # mq15
                     mq15 -> sq050 [arrowhead=invempty,weight=10,penwidth=2]; # whispering hillock subquest (already available earlier)
                     sq050 -> mq15 [arrowhead=inv,penwidth=2];
-                    mq15 -> mq16 [weight=100,penwidth=2.5];
+                    mq15 -> mq16 [weight=100,penwidth=2.75];
             
             # Novigrad
                 
                 # mq17
                     mq17 -> sq076 [arrowhead=empty];
-                    mq17 -> mq18;
+                    mq17 -> mq18 [penwidth=2.75];
                     mq17 -> sq096;
                     mq17 -> sq106;
                 
                 # mq18
-                    mq18 -> mq19;
+                    mq18 -> mq19 [penwidth=2.75];
                     mq18 -> sq073;
                 
                 # mq19
-                    mq19 -> mq20;
+                    mq19 -> mq20 [penwidth=2.75];
                     mq19 -> sq057;
                     mq19 -> sq068;
                     
                 # mq20
-                    mq20 -> mq22 [arrowhead=empty];
+                    mq20 -> mq22 [arrowhead=empty,penwidth=2.75];
                     mq20 -> sq099 [arrowhead=empty];
-                    mq20 -> mq20_a [arrowhead=empty]; # hideout storyline
-                    mq20 -> mq20_b [arrowhead=empty]; # arena storyline
-                    mq20 -> mq20_c [arrowhead=empty]; # casino storyline
+                    mq20 -> mq20_a [arrowhead=empty,penwidth=2]; # hideout storyline
+                    mq20 -> mq20_b [arrowhead=empty,penwidth=2]; # arena storyline
+                    mq20 -> mq20_c [arrowhead=empty,penwidth=2]; # casino storyline
                     
                 # mq20_b
-                    sq099 -> mq20_b [arrowhead=halfopen,color=azure4]; # can work with cleaver's men to raid arena
-                    mq20_b -> mq20_d;
+                    sq099 -> mq20_b [arrowhead=halfopen,color=gray35]; # can work with cleaver's men to raid arena
+                    mq20_b -> mq20_d [penwidth=2];
                     
                 # mq20_c
-                    sq099 -> mq20_c [arrowhead=halfopen,color=azure4]; # can work with cleaver's men to raid arena
-                    mq20_c -> mq20_d;
+                    sq099 -> mq20_c [arrowhead=halfopen,color=gray35]; # can work with cleaver's men to raid arena
+                    mq20_c -> mq20_d [penwidth=2];
                     mq20_c -> sq077;
                 
                 # mq20_d - Get Junior storylines merge when you meet the Redanian contact
@@ -915,101 +917,103 @@ digraph G {
                     sq099 -> mq20_d [arrowhead=box,style=dotted];
                     mq20_d -> sq063 [arrowhead=empty];
                     mq20_d -> sq088 [arrowhead=empty];
-                    mq20_d -> mq21 [arrowhead=invempty]; # ciri interlude
+                    mq20_d -> mq21 [arrowhead=empty,penwidth=2]; # ciri interlude
                     mq21 -> mq20_d [arrowhead=inv];
-                    mq20_d -> mq23 [arrowhead=invempty]; # radovid subquest
+                    mq20_d -> mq23 [arrowhead=empty,penwidth=2]; # radovid subquest
                     mq23 -> mq20_d [arrowhead=inv];
-                    mq20_d -> mq24; # TODO delete this edge if I already have The Play's the Thing
+                    mq20_d -> mq24 [penwidth=2.75]; # TODO delete this edge if I already have The Play's the Thing
                 
                 # mq22
-                    mq22 -> mq22_a;
+                    mq22 -> mq22_a [penwidth=2.75];
                 
                 # mq22_a
                     sq061 -> mq22_a [arrowhead=box,style=dotted];
                     mq22_a -> sq059 [arrowhead=empty];
-                    mq22_a -> mq24;
+                    mq22_a -> mq24 [penwidth=2.75];
                 
                 # mq23
                     mq23 -> sq091;
                 
                 # mq24
-                    mq24 -> mq25;
+                    mq24 -> mq25 [penwidth=2.75];
                 
                 # mq25
-                    mq22 -> mq25 [arrowhead=halfopen,color=azure4]; # depends on whether you found Dijkstra's treasure
-                    mq25 -> mq26;
+                    mq22 -> mq25 [arrowhead=halfopen,color=gray35]; # depends on whether you found Dijkstra's treasure
+                    mq25 -> mq26 [penwidth=2.75];
                 
                 # mq26 - Act 1 main story for Novigrad ends
                     mq26 -> sq064; # Dandelion storyline continues in sidequest
                     mq26 -> BAWmq01; # begins Blood and Wine DLC
             
             # mq27
-                mq27 -> mq28;
+                mq27 -> mq28 [penwidth=2.75];
             
             # mq28
-                mq28 -> mq29;
+                mq28 -> mq29 [penwidth=2.75];
                 mq28 -> sq131;
                 mq28 -> sq137;
                 mq28 -> sq145;
             
             # mq29
-                mq29 -> mq30;
+                mq29 -> mq30 [penwidth=2.75];
             
             # mq30
                 mq30 -> sq125 [arrowhead=empty];
-                mq30 -> mq31;
+                mq30 -> mq31 [penwidth=2.75];
             
             # mq31
-                mq31 -> mq32;
+                mq31 -> mq32 [penwidth=2.75];
             
             # mq32 - Act 1 main story for Skellige ends
-                mq32 -> mq33;
+                mq32 -> mq33 [penwidth=2.75];
                 mq32 -> sq144;
             
             # mq33
-                mq09_a -> mq33 [arrowhead=halfopen,color=azure4,constraint=false]; # already having met Uma skips this quest
+                mq09_a -> mq33 [arrowhead=halfopen,color=gray35,constraint=false]; # already having met Uma skips this quest
         
         # Act 1 -> Act 2
             
-            mq12 -> mq34 [ltail=cluster_act1_velen];
-            mq26 -> mq34 [ltail=cluster_act1_novigrad];
-            mq33 -> mq34 [ltail=cluster_act1_skellige];
+            mq12 -> mq34 [ltail=cluster_act1_velen,penwidth=2.75];
+            mq26 -> mq34 [ltail=cluster_act1_novigrad,penwidth=2.75];
+            mq33 -> mq34 [ltail=cluster_act1_skellige,penwidth=2.75];
         
         # Act 2
             
             # mq34
                 sq003 -> mq34 [arrowhead=box,style=dotted];
                 sq144 -> mq34 [arrowhead=box,style=dotted];
-                mq12 -> mq34 [arrowhead=halfopen,color=azure4];
-                mq34 -> mq35 [arrowhead=empty]; # subquest with Yennefer and Vesemir (ideally done first)
-                mq34 -> mq36 [arrowhead=empty]; # subquest with Eskel
-                mq34 -> mq37 [arrowhead=empty]; # subquest with Lambert
-                mq38 -> mq34_b; # last subquest before continuing Ugly Baby
-                mq34_b -> mq39;
+                mq12 -> mq34 [arrowhead=halfopen,color=gray35];
+                mq34 -> mq35 [arrowhead=empty,penwidth=2]; # subquest with Yennefer and Vesemir (ideally done first)
+                mq34 -> mq36 [arrowhead=empty,penwidth=2]; # subquest with Eskel
+                mq34 -> mq37 [arrowhead=empty,penwidth=2]; # subquest with Lambert
+                mq34_b -> mq39 [penwidth=2.75];
             
             # mq35
-                sq144 -> mq35 [arrowhead=halfopen,color=azure4];
-                mq35 -> mq38;
+                sq144 -> mq35 [arrowhead=halfopen,color=gray35];
+                mq35 -> mq38 [penwidth=2];
             
             # mq36
-                mq36 -> mq38;
+                mq36 -> mq38 [penwidth=2];
             
             # mq37
-                mq37 -> mq38;
+                mq37 -> mq38 [penwidth=2];
+            
+            # mq38
+                mq38 -> mq34_b [penwidth=2.75]; # last subquest before continuing Ugly Baby
             
             # mq39
-                mq39 -> mq40;
-                mq39 -> mq41;
-                mq39 -> mq42;
-                mq39 -> mq43;
-                mq39 -> mq44 [weight=500];
+                mq39 -> mq40 [penwidth=2];
+                mq39 -> mq41 [penwidth=2];
+                mq39 -> mq42 [penwidth=2];
+                mq39 -> mq43 [penwidth=2];
+                mq39 -> mq44 [weight=500,penwidth=2.75];
             
             # mq40
-                sq033 -> mq40 [arrowhead=halfopen,color=azure4]; # depends on whether you let Letho live
+                sq033 -> mq40 [arrowhead=halfopen,color=gray35]; # depends on whether you let Letho live
                 sq030 -> mq40 [arrowhead=inv];
             
             # mq41
-                mq22_a -> mq41 [arrowhead=halfopen,color=azure4]; # depends on whether you found Dijkstra's treasure
+                mq22_a -> mq41 [arrowhead=halfopen,color=gray35]; # depends on whether you found Dijkstra's treasure
                 sq063 -> mq41 [arrowhead=inv];
                 sq084 -> mq41 [arrowhead=inv];
                 sq055 -> mq41 [arrowhead=obox,style=dotted];
@@ -1043,35 +1047,35 @@ digraph G {
                 sq091 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
                 sq114 -> mq44 [arrowhead=box,style=dotted,ltail=cluster_cerys_hjalmar];
                 sq154 -> mq44 [arrowhead=box,style=dotted];
-                mq44 -> mq45;
+                mq44 -> mq45 [penwidth=2.75];
             
             # mq45
-                mq45 -> mq46;
+                mq45 -> mq46 [penwidth=2.75];
         
         # Act 2 -> Act 3
             
             # mq46
-                mq46 -> mq47;
+                mq46 -> mq47 [penwidth=2.75];
         
         # Act 3 
             
             # mq47
-                mq47 -> mq48;
+                mq47 -> mq48 [penwidth=2.75];
             
             # mq48
                 sq101 -> mq48 [arrowhead=box,style=dotted]; # if not completed by lodge meeting
                 sq103 -> mq48 [arrowhead=box,style=dotted]; # if not completed by lodge meeting
-                mq48 -> mq49 [arrowhead=invempty];
+                mq48 -> mq49 [arrowhead=empty,penwidth=2];
                 mq49 -> mq48 [arrowhead=inv];
-                mq48 -> mq50 [arrowhead=invempty];
+                mq48 -> mq50 [arrowhead=empty,penwidth=2];
                 mq50 -> mq48 [arrowhead=inv];
-                mq48 -> mq51 [arrowhead=invempty];
+                mq48 -> mq51 [arrowhead=empty,penwidth=2];
                 mq51 -> mq48 [arrowhead=inv];
-                mq48 -> mq52 [arrowhead=invempty];
+                mq48 -> mq52 [arrowhead=empty,penwidth=2];
                 mq52 -> mq48 [arrowhead=inv];
-                mq48 -> sq078 [arrowhead=invempty]; # two-timer storyline
+                mq48 -> sq078 [arrowhead=empty]; # two-timer storyline
                 sq078 -> mq48 [arrowhead=inv];
-                mq48 -> mq53;
+                mq48 -> mq53 [penwidth=2.75];
             
             # mq49
                 mq49 -> sq058 [arrowhead=empty]; # if Keira Metz died
@@ -1079,40 +1083,39 @@ digraph G {
                 sq058 -> mq49 [arrowhead=obox,style=dotted];
             
             # mq50
-                sq084 -> mq50 [arrowhead=halfopen,color=azure4];
+                sq084 -> mq50 [arrowhead=halfopen,color=gray35];
             
             # mq52
-                mq52 -> mq51 [arrowhead=empty]; # if not yet started # TODO figure out a new edge type for this
+                mq52 -> mq51 [arrowhead=invempty,constraint=false]; # if not yet started # TODO figure out a new edge type for this
                 
             # mq53
                 sq145 -> mq53 [arrowhead=box,style=dotted];
-                mq53 -> mq54 [arrowhead=invempty];
+                mq53 -> mq54 [arrowhead=empty,penwidth=2];
                 mq54 -> mq53 [arrowhead=inv];
-                mq53 -> mq55 [arrowhead=invempty];
+                mq53 -> mq55 [arrowhead=empty,penwidth=2];
                 mq55 -> mq53 [arrowhead=inv];
-                mq53 -> mq56 [arrowhead=invempty];
                 mq56 -> mq53 [arrowhead=inv];
-                mq53 -> mq57 [arrowhead=invempty];
-                mq53 -> mq58;
+                mq53 -> mq57 [arrowhead=empty];
+                mq53 -> mq58 [penwidth=2.75];
             
             # mq54
-                mq54 -> mq56;
+                mq54 -> mq56 [penwidth=2];
             
             # mq56
-                mq56 -> mq57 [arrowhead=invempty];
+                { rank="same"; mq56 -> mq57 [arrowhead=invempty,penwidth=2]; }
             
             # mq58
                 sq090 -> mq58 [arrowhead=obox,style=dotted];
                 contract01 -> mq58 [arrowhead=obox,style=dotted];
-                mq58 -> mq59;
+                mq58 -> mq59 [penwidth=2.75];
             
             # mq59
-                mq59 -> mq60;
+                mq59 -> mq60 [penwidth=2.75];
             
             # mq60
-                mq46 -> mq60 [arrowhead=halfopen,color=azure4]; # affects the ending
-                mq48 -> mq60 [arrowhead=halfopen,color=azure4]; # affects the ending
-                mq56 -> mq60 [arrowhead=halfopen,color=azure4]; # affects the ending
+                mq46 -> mq60 [arrowhead=halfopen,color=gray35]; # affects the ending
+                mq48 -> mq60 [arrowhead=halfopen,color=gray35]; # affects the ending
+                mq56 -> mq60 [arrowhead=halfopen,color=gray35]; # affects the ending
                 mq60 -> sq008 [arrowhead=empty];
                 sq008 -> mq60 [arrowhead=obox,style=dotted];
                 mq60 -> BAWmq16;
@@ -1130,13 +1133,13 @@ digraph G {
                 sq133 -> sq002 [lhead=cluster_gwent,arrowhead=inv,color=goldenrod];
             
             # sq004 
-                sq056 -> sq004 [arrowhead=halfopen,color=azure4]; # if completed prior to playing Roche, Thaler will be played as part of this quest
+                sq056 -> sq004 [arrowhead=halfopen,color=gray35]; # if completed prior to playing Roche, Thaler will be played as part of this quest
             
             # sq071
-                sq084 -> sq071 [arrowhead=halfopen,color=azure4]; # depends on if Olivier died
+                sq084 -> sq071 [arrowhead=halfopen,color=gray35]; # depends on if Olivier died
             
             # sq072
-                sq004 -> sq072 [arrowhead=halfopen,color=azure4]; # if A Deadly Plot is completed before playing Roche, this quest will be skipped
+                sq004 -> sq072 [arrowhead=halfopen,color=gray35]; # if A Deadly Plot is completed before playing Roche, this quest will be skipped
             
             # sq123
                 mq29 -> sq123 [arrowhead=inv,color=goldenrod];
@@ -1166,30 +1169,30 @@ digraph G {
     # sq017
         sq017 -> sq016;
     # sq020
-        contract05 -> sq020 [arrowhead=halfopen,color=azure4];
+        contract05 -> sq020 [arrowhead=halfopen,color=gray35];
     # sq027
-        sq019 -> sq027 [arrowhead=halfopen,color=azure4];
+        sq019 -> sq027 [arrowhead=halfopen,color=gray35];
     # sq028
         sq028 -> sq118;
     # sq039
-        sq017 -> sq039 [arrowhead=halfopen,color=azure4];
+        sq017 -> sq039 [arrowhead=halfopen,color=gray35];
     # sq043
         sq043 -> sq017;
     # sq047
         sq052_a -> sq047 [arrowhead=box,style=dotted];
     # sq048
-        sq033 -> sq048 [arrowhead=halfopen,color=azure4];
+        sq033 -> sq048 [arrowhead=halfopen,color=gray35];
     # sq051
-        mq09 -> sq051 [arrowhead=halfopen,color=azure4,weight=100,constraint=false];
-        contract14 -> sq051 [arrowhead=halfopen,color=azure4,weight=100];
-        sq027 -> sq051 [arrowhead=halfopen,color=azure4,weight=1000];
+        mq09 -> sq051 [arrowhead=halfopen,color=gray35,weight=100,constraint=false];
+        contract14 -> sq051 [arrowhead=halfopen,color=gray35,weight=100];
+        sq027 -> sq051 [arrowhead=halfopen,color=gray35,weight=1000];
     # sq052_a
         sq052_a -> sq047 [arrowhead=empty];
     # sq056
         sq056 -> sq072 [arrowhead=empty];
         sq056 -> sq090 [constraint=false,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
     # sq058
-        sq030 -> sq058 [arrowhead=halfopen,color=azure4]; # if Keira went to Radovid
+        sq030 -> sq058 [arrowhead=halfopen,color=gray35]; # if Keira went to Radovid
     # sq059
         sq059 -> sq083;
         sq059 -> sq084;
@@ -1200,13 +1203,13 @@ digraph G {
     # sq069
         sq069 -> sq118;
     # sq078
-        sq084 -> sq078 [arrowhead=halfopen,color=azure4]; # if Triss was not romanced, this quest is skipped
-        sq144 -> sq078 [arrowhead=halfopen,color=azure4]; # if Yennefer was not romanced, this quest is skipped
+        sq084 -> sq078 [arrowhead=halfopen,color=gray35]; # if Triss was not romanced, this quest is skipped
+        sq144 -> sq078 [arrowhead=halfopen,color=gray35]; # if Yennefer was not romanced, this quest is skipped
     # sq084
         sq106 -> sq084 [arrowhead=box,style=dotted];
         sq084 -> sq056;
     # sq087
-        sq145 -> sq087 [arrowhead=halfopen,color=azure4]; # if completed, another dialogue option becomes available
+        sq145 -> sq087 [arrowhead=halfopen,color=gray35]; # if completed, another dialogue option becomes available
     # sq091
         sq091 -> sq084;
         sq091 -> sq090 [constraint=false,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
@@ -1217,7 +1220,7 @@ digraph G {
     # sq199
         sq119 -> sq118;
     # sq127
-        sq119 -> sq127 [arrowhead=halfopen,color=azure4]; # if Olaf has been defeated
+        sq119 -> sq127 [arrowhead=halfopen,color=gray35]; # if Olaf has been defeated
     # sq128
         sq135 -> sq128 [arrowhead=box,style=dotted];
         sq137 -> sq128 [arrowhead=obox,style=dotted];
@@ -1225,13 +1228,13 @@ digraph G {
     # sq131
         sq131 -> sq128;
     # sq135
-        sq137 -> sq135 [arrowhead=halfopen,color=azure4];
+        sq137 -> sq135 [arrowhead=halfopen,color=gray35];
         sq135 -> sq110; # if Simun Brambling helped
     # sq137
-        sq135 -> sq137 [arrowhead=halfopen,color=azure4];
+        sq135 -> sq137 [arrowhead=halfopen,color=gray35];
         sq137 -> sq110;
     # sq139
-        sq003 -> sq139 [arrowhead=halfopen,color=azure4];
+        sq003 -> sq139 [arrowhead=halfopen,color=gray35];
     # sq141
         sq140 -> sq141 [arrowhead=inv];
         sq142 -> sq141 [arrowhead=inv];
@@ -1248,21 +1251,21 @@ digraph G {
     # contract12
         contract12 -> sq053;
     # contract15
-        mq22_a -> contract15 [arrowhead=halfopen,color=azure4]; # If completed but next main quest is not finished, additional dialogue option is available (don't choose it)
+        mq22_a -> contract15 [arrowhead=halfopen,color=gray35]; # If completed but next main quest is not finished, additional dialogue option is available (don't choose it)
     # contract16
         contract16 -> sq087;
     # contract21
         contract21 -> sq102 [arrowhead=empty];
         contract21 -> sq092;
     # contract28
-        mq15 -> contract28 [arrowhead=halfopen,color=azure4];
-        mq18 -> contract28 [arrowhead=halfopen,color=azure4];
-        mq37 -> contract28 [arrowhead=halfopen,color=azure4];
-        sq015 -> contract28 [arrowhead=halfopen,color=azure4];
-        sq125 -> contract28 [arrowhead=halfopen,color=azure4];
-        contract15 -> contract28 [arrowhead=halfopen,color=azure4];
-        contract16 -> contract28 [arrowhead=halfopen,color=azure4];
-        contract25 -> contract28 [arrowhead=halfopen,color=azure4];
+        mq15 -> contract28 [arrowhead=halfopen,color=gray35];
+        mq18 -> contract28 [arrowhead=halfopen,color=gray35];
+        mq37 -> contract28 [arrowhead=halfopen,color=gray35];
+        sq015 -> contract28 [arrowhead=halfopen,color=gray35];
+        sq125 -> contract28 [arrowhead=halfopen,color=gray35];
+        contract15 -> contract28 [arrowhead=halfopen,color=gray35];
+        contract16 -> contract28 [arrowhead=halfopen,color=gray35];
+        contract25 -> contract28 [arrowhead=halfopen,color=gray35];
     # contract30
         contract30 -> sq135;
     
@@ -1271,30 +1274,30 @@ digraph G {
         
         # HOSmq1
             HOSmq1 -> HOSsq6 [arrowhead=empty];
-            HOSmq1 -> HOSmq2;
-            HOSmq1 -> HOSmq3;
+            HOSmq1 -> HOSmq2 [penwidth=2.75];
+            HOSmq1 -> HOSmq3 [penwidth=2.75];
         
         # HOSmq2
             HOSmq2 -> HOSsq1 [arrowhead=empty];
-            HOSmq2 -> HOSmq7;
+            HOSmq2 -> HOSmq7 [penwidth=2.75];
         
         # HOSmq3
             HOSsq2 -> HOSmq3 [arrowhead=obox,style=dotted];
             HOSmq3 -> HOStreasure [arrowhead=empty];
-            HOSmq3 -> HOSmq4 [arrowhead=invempty];
+            HOSmq3 -> HOSmq4 [arrowhead=empty,penwidth=2];
             HOSmq4 -> HOSmq3 [arrowhead=inv];
-            HOSmq3 -> HOSmq5 [arrowhead=invempty];
+            HOSmq3 -> HOSmq5 [arrowhead=empty,penwidth=2];
             HOSmq5 -> HOSmq3 [arrowhead=inv];
-            HOSmq3 -> HOSmq6 [arrowhead=invempty];
+            HOSmq3 -> HOSmq6 [arrowhead=empty,penwidth=2];
             HOSmq6 -> HOSmq3 [arrowhead=inv];
-            HOSmq3 -> HOSmq7;
+            HOSmq3 -> HOSmq7 [penwidth=2.75];
         
         # HOSmq6
-            contract20 -> HOSmq6 [arrowhead=halfopen,color=azure4];
+            contract20 -> HOSmq6 [arrowhead=halfopen,color=gray35];
         
         # HOSmq7
             HOSsq1 -> HOSmq7 [arrowhead=box,style=dotted];
-            HOSmq7 -> HOSmq8;
+            HOSmq7 -> HOSmq8 [penwidth=2.75];
     
     # side quests
     
@@ -1306,66 +1309,66 @@ digraph G {
     # main quests
         
         # BAWmq01
-            BAWmq01 -> BAWmq02 [penwidth=2];
+            BAWmq01 -> BAWmq02 [penwidth=2.75];
         
         # BAWmq02
-            BAWmq02 -> BAWmq03 [weight=2,penwidth=2.5];
+            BAWmq02 -> BAWmq03 [weight=2,penwidth=2.75];
             BAWmq02 -> BAWsq20;
         
         # BAWmq03
-            BAWmq03 -> BAWmq04 [weight=2,penwidth=2.5];
+            BAWmq03 -> BAWmq04 [weight=2,penwidth=2.75];
             BAWmq03 -> BAWsq30;
         
         # BAWmq04
             BAWmq04 -> BAWsq24 [arrowhead=empty];
-            BAWmq04 -> BAWmq05 [weight=2,penwidth=2.5];
+            BAWmq04 -> BAWmq05 [weight=2,penwidth=2.75];
             BAWmq04 -> BAWsq03;
         
         # BAWmq05
             BAWsq03 -> BAWmq05 [arrowhead=obox,style=dotted];
             BAWsq24 -> BAWmq05 [arrowhead=obox,style=dotted];
-            BAWmq05 -> BAWmq06 [weight=2,penwidth=2.5];
+            BAWmq05 -> BAWmq06 [weight=2,penwidth=2.75];
         
         # BAWmq05
-            BAWmq06 -> BAWmq07 [weight=2,penwidth=2.5];
+            BAWmq06 -> BAWmq07 [weight=2,penwidth=2.75];
         
         # BAWmq07
-            BAWmq07 -> BAWmq08 [weight=2,penwidth=2.5];
+            BAWmq07 -> BAWmq08 [weight=2,penwidth=2.75];
         
         # BAWmq08
             BAWsq26 -> BAWmq08 [arrowhead=box,style=dotted];
-            BAWmq08 -> BAWmq09 [weight=2,penwidth=2.5];
+            BAWmq08 -> BAWmq09 [weight=2,penwidth=2.75];
         
         # BAWmq09
-            BAWmq09 -> BAWmq10 [arrowhead=empty,weight=2,penwidth=2.5];
-            BAWmq09 -> BAWmq11 [arrowhead=empty,weight=2,penwidth=2.5];
+            BAWmq09 -> BAWmq10 [arrowhead=empty,weight=2,penwidth=2.75];
+            BAWmq09 -> BAWmq11 [arrowhead=empty,weight=2,penwidth=2.75];
         
         # BAWmq10
             BAWmq12 -> BAWmq10 [arrowhead=box,style=dotted];
             BAWmq10 -> BAWsq10 [arrowhead=empty];
             BAWsq10 -> BAWmq10 [arrowhead=obox,style=dotted];
-            BAWmq10 -> BAWmq13 [weight=2,penwidth=2.5];
+            BAWmq10 -> BAWmq13 [weight=2,penwidth=2.75];
         
         # BAWmq11
-            BAWmq11 -> BAWmq12 [weight=2,penwidth=2.5];
+            BAWmq11 -> BAWmq12 [weight=2,penwidth=2.75];
         
         # BAWmq12
             BAWmq10 -> BAWmq12 [arrowhead=box,style=dotted];
-            BAWmq12 -> BAWmq13 [weight=2,penwidth=2.5];
+            BAWmq12 -> BAWmq13 [weight=2,penwidth=2.75];
         
         # BAWmq13
-            BAWmq13 -> BAWmq14 [arrowhead=empty,weight=10,penwidth=2.5];
-            BAWmq13 -> BAWmq15 [arrowhead=empty,weight=10,penwidth=2.5];
+            BAWmq13 -> BAWmq14 [arrowhead=empty,weight=10,penwidth=2.75];
+            BAWmq13 -> BAWmq15 [arrowhead=empty,weight=10,penwidth=2.75];
         
         # BAWmq14
-            BAWmq12 -> BAWmq14 [arrowhead=halfopen,color=azure4];
-            BAWmq10 -> BAWmq14 [arrowhead=halfopen,color=azure4];
-            BAWmq14 -> BAWmq16 [weight=2,penwidth=2.5];
+            BAWmq12 -> BAWmq14 [arrowhead=halfopen,color=gray35];
+            BAWmq10 -> BAWmq14 [arrowhead=halfopen,color=gray35];
+            BAWmq14 -> BAWmq16 [weight=2,penwidth=2.75];
         
         # BAWmq15
             BAWmq15 -> BAWsq25 [arrowhead=empty,weight=20];
             BAWsq25 -> BAWmq15 [arrowhead=obox,style=dotted,constraint=false];
-            BAWmq15 -> BAWmq16 [weight=2,penwidth=2.5];
+            BAWmq15 -> BAWmq16 [weight=2,penwidth=2.75];
     
     # side quests
         
@@ -1385,7 +1388,7 @@ digraph G {
             BAWsq13 -> BAWsq23;
         
         # BAWsq16
-            BAWsq15 -> BAWsq16 [arrowhead=halfopen,color=azure4];
+            BAWsq15 -> BAWsq16 [arrowhead=halfopen,color=gray35];
             BAWsq16 -> BAWsq15 [arrowhead=empty];
         
         # BAWsq26
@@ -1393,40 +1396,40 @@ digraph G {
             BAWsq26 -> BAWsq21;
         
         # BAWsq28
-            BAWmq02 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWmq03 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWmq04 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWmq05:e -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWmq08 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWmq09 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWmq10 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWmq13 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq01 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq02 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq12 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq14 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq16 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq19 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq23 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq24 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq26 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq29 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq30 -> BAWsq28 [arrowhead=halfopen,color=azure4];
-            BAWsq28 -> BAWcontract1 [arrowtail=halfopen,color=azure4,dir="back"];
-            BAWsq28 -> BAWcontract2 [arrowtail=halfopen,color=azure4,dir="back"];
-            BAWsq28 -> BAWcontract3 [arrowtail=halfopen,color=azure4,dir="back"];
-            BAWsq28 -> BAWcontract4 [arrowtail=halfopen,color=azure4,dir="back"];
-            BAWsq28 -> BAWcontract5 [arrowtail=halfopen,color=azure4,dir="back"];
+            BAWmq02 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWmq03 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWmq04 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWmq05:e -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWmq08 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWmq09 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWmq10 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWmq13 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq01 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq02 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq12 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq14 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq16 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq19 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq23 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq24 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq26 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq29 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq30 -> BAWsq28 [arrowhead=halfopen,color=gray35];
+            BAWsq28 -> BAWcontract1 [arrowtail=halfopen,color=gray35,dir="back"];
+            BAWsq28 -> BAWcontract2 [arrowtail=halfopen,color=gray35,dir="back"];
+            BAWsq28 -> BAWcontract3 [arrowtail=halfopen,color=gray35,dir="back"];
+            BAWsq28 -> BAWcontract4 [arrowtail=halfopen,color=gray35,dir="back"];
+            BAWsq28 -> BAWcontract5 [arrowtail=halfopen,color=gray35,dir="back"];
         
         # BAWsq35
-            BAWsq36 -> BAWsq35 [arrowhead=halfopen,color=azure4,constraint=false];
-            BAWsq38 -> BAWsq35 [arrowhead=halfopen,color=azure4,constraint=false];
+            BAWsq36 -> BAWsq35 [arrowhead=halfopen,color=gray35,constraint=false];
+            BAWsq38 -> BAWsq35 [arrowhead=halfopen,color=gray35,constraint=false];
             BAWsq35 -> BAWsq37 [arrowhead=invempty];
             BAWsq35 -> BAWsq39 [arrowhead=invempty];
         
         # BAWsq36
-            BAWsq37 -> BAWsq36 [arrowhead=halfopen,color=azure4];
-            BAWsq39 -> BAWsq36 [arrowhead=halfopen,color=azure4];
+            BAWsq37 -> BAWsq36 [arrowhead=halfopen,color=gray35];
+            BAWsq39 -> BAWsq36 [arrowhead=halfopen,color=gray35];
         
         # BAWsq37
             BAWsq37 -> BAWsq38 [arrowhead=empty];
