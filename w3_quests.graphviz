@@ -13,12 +13,13 @@ digraph G {
     subgraph base_game {
         
         subgraph cluster_prologue_to_act3 {
+            style="rounded,filled";
+            fillcolor=white;
             
             subgraph cluster_prologue_to_act2 {
                 
                 subgraph cluster_prologue {
                     label="Prologue";
-                    style="rounded,filled";
                     fillcolor=gray50;
                     
                     subgraph prologue_main {
@@ -40,7 +41,7 @@ digraph G {
                         sq012 [label="Twisted Firestarter"];
                     }
                     
-                    white_orchard [label="white orchard unlocked",fillcolor=red]; # TODO: hide
+                    white_orchard [label="white orchard unlocked",style=invis];
                 }
                 
                 subgraph act1 {
@@ -71,8 +72,6 @@ digraph G {
                         subgraph act1_velen_side {
                             sq050 [label="The Whispering Hillock"];
                         }
-                        
-                        velen [label="velen unlocked",fillcolor=steelblue]; # TODO: hide
                         
                     }
                         
@@ -107,8 +106,6 @@ digraph G {
                             sq099 [label="The Gangs of Novigrad"];
                         }
                         
-                        novigrad [label="novigrad unlocked",fillcolor=mediumspringgreen]; # TODO: hide
-                        
                     }
                     
                     subgraph cluster_act1_skellige {
@@ -133,13 +130,11 @@ digraph G {
                             sq120 [label="Flesh for Sale"];
                             sq144 [label="The Last Wish"];
                         }
-                        
-                        skellige [label="skellige unlocked",fillcolor=firebrick4]; # TODO: hide
                     }
                     
                 }
                 
-                mq_act1_end [label="Act I end",fillcolor=red];
+                mq_act1_end [label="Act I end",style=invis];
                 
                 subgraph cluster_act2 {
                     
@@ -169,8 +164,6 @@ digraph G {
                     subgraph act2_side {
                         sq154 [label="Berengar's Blade"];
                     }
-                    
-                    kaer_morhen [label="kaer morhen unlocked",fillcolor=lightslateblue]; # TODO: hide
                 }
                 
                 subgraph side_prologue_to_act2 {
@@ -182,22 +175,18 @@ digraph G {
                     sq106 [label="Witch Hunter Raids"];
             
                     subgraph cluster_assassin {
-                        label="Assassin";
-                        #label="";
-                        #color=transparent;
-                        #style="";
+                        label="Assassin's Quests";
+                        fillcolor=gainsboro;
                         
                         sq056 [label="A Deadly Plot"];
                         sq063 [label="An Eye for an Eye"];
                         sq091 [label="Redania's Most Wanted"];
-                        dummy_assassin [label="dummy assassin",fillcolor=khaki];
+                        dummy_assassin [label="dummy assassin",style=invis];
                     }
                     
                     subgraph cluster_triss {
                         label="Triss";
-                        #label="";
-                        #color=transparent;
-                        #style="";
+                        fillcolor=gainsboro;
                         
                         sq059 [label="A Matter of Life and Death"];
                         sq084 [label="Now or Never"];
@@ -205,9 +194,7 @@ digraph G {
                     
                     subgraph cluster_dandelion {
                         label="Dandelion";
-                        #label="";
-                        #color=transparent;
-                        #style="";
+                        fillcolor=gainsboro;
                         
                         sq064 [label="Cabaret"];
                         sq065 [label="Carnal Sins"];
@@ -215,9 +202,7 @@ digraph G {
                     
                     subgraph cluster_keira {
                         label="Keira";
-                        #label="";
-                        #color=transparent;
-                        #style="";
+                        fillcolor=gainsboro;
                         
                         sq014 [label="A Favor for a Friend"];
                         sq016 [label="A Towerful of Mice"];
@@ -227,10 +212,8 @@ digraph G {
                     }
                     
                     subgraph cluster_reardon_manor {
-                        label="Letho + Reardon Manor";
-                        #label="";
-                        #color=transparent;
-                        #style="";
+                        label="Reardon Manor (Letho)";
+                        fillcolor=gainsboro;
                         
                         sq033 [label="Ghosts of the Past"];
                         sq048 [label="The Fall of the House of Reardon"];
@@ -239,10 +222,8 @@ digraph G {
                     subgraph cluster_skellige_inheritance {
                         
                         subgraph cluster_lugos_boys {
-                            label="Skellige inheritance (Lugos Sr. and Jr.)";
-                            #label="";
-                            #color=transparent;
-                            #style="";
+                            label="Lugos Sr. and Jr.";
+                            fillcolor=gainsboro;
                             
                             sq110 [label="An Unpaid Debt"];
                             sq135 [label="Stranger in a Strange Land"];
@@ -251,10 +232,8 @@ digraph G {
                         }
                         
                         subgraph cluster_cerys_hjalmar {
-                            label="Skellige inheritance (Cerys and Hjalmar)";
-                            #label="";
-                            #color=transparent;
-                            #style="";
+                            label="Cerys and Hjalmar";
+                            fillcolor=gainsboro;
                             
                             sq114 [label="Coronation"];
                             sq128 [label="King's Gambit"];
@@ -286,10 +265,9 @@ digraph G {
                         contract28 [label="Contract: Skellige's Most Wanted"];
                         
                         subgraph cluster_fake_papers {
-                            label="Fake Papers + brother";
-                            #label="";
-                            #color=transparent;
-                            #style="";
+                            label="";
+                            color=transparent;
+                            style="";
                             
                             sq019 [label="Bitter Harvest"];
                             sq027 [label="Fake Papers"];
@@ -361,37 +339,31 @@ digraph G {
             }
             
             subgraph cluster_no_main_story_connection {
-                label="No main story connections";
-                #color=transparent;
-                #style="";
-                node [color=blue];
+                label="NO MAIN STORY CONNECTIONS";
+                style="rounded,filled";
                 
                 subgraph cluster_multiple_regions {
-                    label="Multiple Regions (no main story constraints)";
-                    #label="";
-                    #color=transparent;
-                    #style="";
+                    label="Multiple Regions";
+                    fillcolor=gainsboro;
+                    
                     subgraph cluster_master_armorer {
-                        label="master armorers";
-                        #label="";
-                        #color=transparent;
-                        #style="";
+                        label="";
+                        color=transparent;
+                        style="";
                         sq005 [label="Master Armorers"];
                         contract11 [label="Contract: The Griffin from the Highlands"];
                     }
                     sq001 [label="Black Pearl"];
                     
-                    dummy1_a [fillcolor=khaki];
+                    dummy1_a [style=invis];
                     { rank="same"; dummy1_a; sq005; sq001; }
-                    dummy1_b [fillcolor=khaki];
+                    dummy1_b [style=invis];
                     { rank="same"; dummy1_b; contract11; }
                 }
                 
                 subgraph cluster_kaer_morhen {
-                    label="Kaer Morhen (no main story constraints)";
-                    #label="";
-                    #color=transparent;
-                    #style="";
+                    label="Kaer Morhen";
+                    fillcolor=gainsboro;
                     
                     sq155 [label="Greenhouse Effect"];
                     sq156 [label="Monster Slayer"];
@@ -399,16 +371,13 @@ digraph G {
                     sq158 [label="The Witchers' Forge"];
                     sq159 [label="Trail of Echoes"];
                     
-                    dummy2 [fillcolor=khaki];
+                    dummy2 [style=invis];
                     { rank="same"; dummy2; sq155; sq156; sq157; sq158; sq159; }
                 }
                 
                 subgraph cluster_velen {
-                    label="Velen (no main story constraints)";
-                    #label="";
-                    #color=transparent;
-                    #style="";
-                    node [color=purple];
+                    label="Velen";
+                    fillcolor=gainsboro;
                     
                     sq013 [label="A Dog's Life"];
                     sq018 [label="At the Mercy of Strangers"]; # done?
@@ -436,46 +405,45 @@ digraph G {
                     contract07 [label="Contract: Shrieker"];
                     contract13 [label="Contract: The Mystery of the Byways Murders"];
                     
-                    subgraph cluster_velen_nilfgaardian_camp {
-                        label="nilfgaardian camp";
-                        #label="";
-                        #color=transparent;
-                        #style="";
-                        sq020 [label="Blood Ties"];
-                        contract05 [label="Contract: Patrol Gone Missing"];
+                    subgraph cluster_storylines {
+                        label="";
+                        color=transparent;
+                        
+                        subgraph cluster_velen_nilfgaardian_camp {
+                            label="";
+                            color=transparent;
+                            sq020 [label="Blood Ties"];
+                            contract05 [label="Contract: Patrol Gone Missing"];
+                        }
+                        
+                        subgraph cluster_velen_honorton {
+                            label="";
+                            color=transparent;
+                            sq047 [label="Take What You Want"];
+                            sq052_a [label="Where the Cat and Wolf Play..."];
+                            contract09 [label="Contract: The Beast of Honorton"];
+                        }
+                        
+                        subgraph cluster_velen_lindenvale {
+                            label="";
+                            color=transparent;
+                            sq053 [label="Witcher Wannabe"];
+                            contract12 [label="Contract: The Merry Widow"];
+                        }
                     }
                     
-                    subgraph cluster_velen_honorton {
-                        label="honorton";
-                        #label="";
-                        #color=transparent;
-                        #style="";
-                        sq047 [label="Take What You Want"];
-                        sq052_a [label="Where the Cat and Wolf Play..."];
-                        contract09 [label="Contract: The Beast of Honorton"];
-                    }
+                    dummy3_a [style=invis];
+                    { rank="same"; dummy3_a; contract02; contract03; contract04; contract05; contract06; contract07; contract09; contract12; contract13; }
+                    dummy3_1 [style=invis];
+                    { rank="same"; dummy3_1; sq020; sq052_a; sq053; sq013; sq018; sq024; sq021; sq023; sq025; sq026; sq029; sq032; sq035; sq036; }
+                    dummy3_b [style=invis];
+                    { rank="same"; dummy3_b; sq047; sq037; sq038; sq040; sq041;  sq044; sq045; sq049; sq052_b; }
                     
-                    subgraph cluster_velen_lindenvale {
-                        label="lindenvale";
-                        #label="";
-                        #color=transparent;
-                        #style="";
-                        sq053 [label="Witcher Wannabe"];
-                        contract12 [label="Contract: The Merry Widow"];
-                    }
-                    
-                    dummy3_a [fillcolor=khaki];
-                    { rank="same"; dummy3_a; sq013; sq018; sq024; sq021; sq023; sq025; sq026; sq029; sq032; sq035; sq036; sq037; sq038; sq040; sq041;  sq044; sq045; sq049; sq052_b; contract02; contract03; contract04; contract05; contract06; contract07; contract09; contract12; contract13; }
-                    dummy3_b [fillcolor=khaki];
-                    { rank="same"; dummy3_b; sq047; }
                 }
                 
                 subgraph cluster_novigrad {
-                    label="Novigrad (no main story constraints)";
-                    #label="";
-                    #color=transparent;
-                    #style="";
-                    node [color=palevioletred];
+                    label="Novigrad";
+                    fillcolor=gainsboro;
                     
                     sq006_a [label="Never Trust Children (Novigrad)"];
                     sq054 [label="A Barnful of Trouble"];
@@ -507,10 +475,9 @@ digraph G {
                     contract22 [label="Contract: The White Lady"];
                     
                     subgraph cluster_novigrad_oxenfurt{
-                        label="oxenfurt";
-                        #label="";
-                        #color=transparent;
-                        #style="";
+                        label="";
+                        color=transparent;
+                        
                         sq092 [label="Rough Neigborhood"];
                         sq102 [label="The Price of Passage"];
                         contract21 [label="Contract: The Oxenfurt Drunk"];
@@ -518,11 +485,11 @@ digraph G {
                     
                     subgraph cluster_HoS {
                         label="Hearts of Stone";
-                        style="rounded,filled";
                         fillcolor=gray50;
                         
                         subgraph cluster_HoS_main {
-                            label="Main";
+                            label="";
+                            fillcolor=gray60;
                             node [fillcolor=white];
                             
                             HOSmq1 [label="Evil's Soft First Touches"];
@@ -544,25 +511,25 @@ digraph G {
                             HOSsq6 [label="Rose on a Red Field"];
                             HOSsq7 [label="The Taxman Cometh"];
                             HOSsq8 [label="Without a Trace"];
-                            # treausure hunts that rely on a quest
-                            HOStreasure [label="A Dark Legacy"];
+                            
+                            HOStreasure [label="A Dark Legacy"];# treausure hunt that relies on a quest
                         }
                         
                     }
                     
-                    dummy4_a [fillcolor=khaki];
-                    { rank="same"; dummy4_a; sq006_a; sq054; sq060; sq062; sq066; sq067; sq074; sq075; sq079; sq080; sq081; sq082; sq085; sq086; sq089; sq093; sq094; sq095; sq097; sq098; sq100; sq104; sq105; contract17; contract18; contract19; contract20; contract21; contract22; HOSsq2; HOSsq4; HOSsq5; HOSsq7; HOSsq8; HOSmq1; }
-                    dummy4_b [fillcolor=khaki];
+                    dummy4_a [style=invis];
+                    { rank="same"; dummy4_a; sq097; sq098; sq100; sq104; sq105; contract17; contract18; contract19; contract21; contract22; HOSsq2; HOSsq4; HOSsq5; HOSsq7; HOSsq8; HOSmq1; }
+                    dummy4_1 [style=invis];
+                    { rank="same"; dummy4_1; sq006_a; sq054; sq060; sq062; sq066; sq067; sq074; sq079; sq080; sq081; HOSsq3; HOSmq3; HOSmq2; HOSsq6; sq092; sq102; }
+                    dummy4_2 [style=invis];
+                    { rank="same"; dummy4_2; sq075; sq082; sq085; sq086; sq089; sq093; sq094; sq095; HOSmq6; }
+                    dummy4_b [style=invis];
                     { rank="same"; dummy4_b; HOSmq8; }
                 }
                 
                 subgraph cluster_skellige {
-                    label="Skellige (no main story constraints)";
-                    #label="";
-                    #color=transparent;
-                    #style="";
-                    
-                    node [color=sienna];
+                    label="Skellige";
+                    fillcolor=gainsboro;
                     
                     sq006_b [label="Never Trust Children (Skellige)"];
                     sq107 [label="A Bard's Beloved"];
@@ -600,24 +567,21 @@ digraph G {
                     contract31 [label="In the Heart of the Woods"];
                     
                     subgraph cluster_skellige_an_skellig {
-                        label="An Skellig";
-                        #label="";
-                        #color=transparent;
-                        #style="";
+                        label="";
+                        color=transparent;
                         sq147 [label="The Path of Warriors"];
                         sq150 [label="The Tower Outta Nowheres"];
                     }
                     
-                    dummy5_a [fillcolor=khaki];
-                    { rank="same"; dummy5_a; sq006_b; sq107; sq108; sq109; sq111; sq112; sq113; sq115; sq116; sq117; sq121; sq122_a; sq122_b; sq124; sq130; sq134; sq136; sq138; sq140; sq142; sq143; sq146; sq148; sq149; sq150; sq151; sq152; sq153; contract23; contract24; contract26; contract27; contract29; contract31; }
-                    dummy5_b [fillcolor=khaki];
-                    { rank="same"; dummy5_b; sq141; sq157; }
+                    dummy5_a [style=invis];
+                    { rank="same"; dummy5_a; sq121; sq122_a; sq122_b; sq124; sq130; sq134; sq136; sq138; sq140; sq142; sq143; sq150; contract23; contract24; contract26; contract27; contract29; contract31; }
+                    dummy5_b [style=invis];
+                    { rank="same"; dummy5_b; sq141; sq157; sq006_b; sq107; sq108; sq109; sq111; sq112; sq113; sq115; sq116; sq117; sq146; sq148; sq149; sq151; sq152; sq153; }
                 }
             
                 subgraph fighting {
                     subgraph cluster_fighting {
                         label="Fists of Fury";
-                        #label="";
                         style="rounded,filled";
                         fillcolor=gainsboro;
                         
@@ -629,15 +593,15 @@ digraph G {
                     sq127 [label="Iron Maiden"];
                     sq129 [label="Master of the Arena"];
                     
-                    dummy6 [fillcolor=khaki];
+                    dummy6 [style=invis];
                     { rank="same"; dummy6; sq129; sq028; sq069; sq119; }
                 }
                 
-                dummy1_b -> dummy2 [color=khaki];
-                dummy2 -> dummy3_a [color=khaki];
-                dummy3_b -> dummy4_a [color=khaki];
-                dummy4_b -> dummy5_a [color=khaki];
-                dummy5_b -> dummy6 [color=khaki];
+                dummy1_b -> dummy2 [style=invis];
+                dummy2 -> dummy3_a [style=invis];
+                dummy3_b -> dummy4_a [style=invis];
+                dummy4_b -> dummy5_a [style=invis];
+                dummy5_b -> dummy6 [style=invis];
                 
             }
         
@@ -680,6 +644,8 @@ digraph G {
             BAWsq03 [label="Amidst the Mill's Grist"];
             subgraph cluster_big_feet {
                 label="";
+                color=transparent;
+                
                 BAWsq04 [label="Big Feet to Fill",ordering="out"];
                 BAWsq05 [label="Big Feet to Fill: The First Group"];
                 BAWsq06 [label="Big Feet to Fill: The Second Group"];
@@ -734,7 +700,7 @@ digraph G {
             BAWcontract5 [label="Feet as Cold as Ice"];
         }
         
-        toussaint [label="toussaint",color=maroon]; # TODO: hide
+        toussaint [label="toussaint",style=invis]; # TODO: hide
     }
     
 #################################### EDGES #####################################
@@ -742,47 +708,39 @@ digraph G {
     # align nodes correctly
     
         # prologue
-            mq03 -> mq04 [color=khaki]; # align nodes correctly
+            mq03 -> mq04 [style=invis]; # align nodes correctly
             { rank="same"; mq03; sq010; }
             # white orchard unlocked
-                mq01 -> white_orchard [color=red];
-                white_orchard -> mq02 [color=red];
-                white_orchard -> sq007 [color=red];
-                white_orchard -> sq009 [color=red];
-                white_orchard -> sq010 [color=red];
-                white_orchard -> sq011 [color=red];
-                white_orchard -> sq012 [color=red];
+                mq01 -> white_orchard [style=invis];
+                white_orchard -> mq02 [style=invis];
+                white_orchard -> sq007 [style=invis];
+                white_orchard -> sq009 [style=invis];
+                white_orchard -> sq010 [style=invis];
+                white_orchard -> sq011 [style=invis];
+                white_orchard -> sq012 [style=invis];
     
         # act 1
             { rank="same"; mq06; mq17; mq27; }
         
         # act 1 Velen
-            { rank="same"; mq06; velen; } # velen unlocked with The Nilfgaardian Connection
-            { rank="same"; mq13 -> mq07 [color=khaki]; } # Bloody Baron + Hunting a Witch
-            { mq08 -> mq14 [color=khaki]; } # Ciri's Story: The King of the Wolves + Wandering in the Dark
-            { rank="same"; mq11 -> mq09_b -> mq10 -> mq09_a [color=khaki]; }
+            { rank="same"; mq13 -> mq07 [style=invis]; } # Bloody Baron + Hunting a Witch
+            { mq08 -> mq14 [style=invis]; } # Ciri's Story: The King of the Wolves + Wandering in the Dark
+            { rank="same"; mq11 -> mq09_b -> mq10 -> mq09_a [style=invis]; }
             #{ rank="same";  mq11; mq09_b; mq10; mq09_a; }
             { rank="same"; mq15; sq050; } # The Whispering Hillock + Ladies of the Wood
         
-        # act 1 Novigrad
-            { rank="same"; novigrad; mq17; }
-        
-        # act 1 Skellige
-            { rank="same"; mq27; skellige; }
-        
         # end of Act 1
-            mq12 -> mq_act1_end [color=red,weight=1000]; # align clusters correctly # TODO: hide
-            mq26 -> mq_act1_end [color=red,weight=1000]; # align clusters correctly # TODO: hide
-            mq33 -> mq_act1_end [color=red,weight=1000]; # align clusters correctly # TODO: hide
-            sq003 -> mq_act1_end [color=khaki];
-            sq144 -> mq_act1_end [color=khaki];
+            mq12 -> mq_act1_end [style=invis,weight=1000]; # align clusters correctly # TODO: hide
+            mq26 -> mq_act1_end [style=invis,weight=1000]; # align clusters correctly # TODO: hide
+            mq33 -> mq_act1_end [style=invis,weight=1000]; # align clusters correctly # TODO: hide
+            sq003 -> mq_act1_end [style=invis];
+            sq144 -> mq_act1_end [style=invis];
             { rank="same"; sq003; sq003_a; }
         # start of Act 1
-            mq_act1_end -> mq34 [color=red,weight=1000]; # TODO: hide
+            mq_act1_end -> mq34 [style=invis,weight=1000]; # TODO: hide
         
         # Act 2
             { rank="same"; mq35; mq36; mq37; }
-            { rank="same"; mq34; kaer_morhen; }
         
         # side quests
             { rank="same"; sq135; sq137; }
@@ -790,48 +748,51 @@ digraph G {
             { rank="same"; sq135; sq059 }
             { rank="same"; sq055; mq41; }
             { rank="same"; sq131; sq145; }
-            sq091 -> sq063 -> sq056 [color=khaki];
-            sq091 -> dummy_assassin [color=khaki];
-            sq063 -> dummy_assassin [color=khaki];
-            { rank="same"; sq056 -> dummy_assassin [color=khaki]; }
+            sq091 -> sq063 -> sq056 [style=invis];
+            sq091 -> dummy_assassin [style=invis];
+            sq063 -> dummy_assassin [style=invis];
+            { rank="same"; sq056 -> dummy_assassin [style=invis]; }
             dummy_assassin -> sq090 [ltail=cluster_assassin];
             dummy_assassin -> mq44 [ltail=cluster_assassin,arrowhead=box,style=dotted];
+            dummy_assassin -> sq033 [style=invis];
         
         # gwent
-            sq002 -> sq004 [color=khaki];
-            sq002 -> sq034 [color=khaki];
-            sq002 -> sq070 [color=khaki];
-            sq002 -> sq071 [color=khaki];
-            sq002 -> sq072 [color=khaki];
-            sq002 -> sq123 [color=khaki];
+            sq002 -> sq004 [style=invis];
+            sq002 -> sq034 [style=invis];
+            sq002 -> sq070 [style=invis];
+            sq002 -> sq071 [style=invis];
+            sq002 -> sq072 [style=invis];
+            sq002 -> sq123 [style=invis];
             { rank="same"; sq132; sq133; }
-            dummy_gwent [fillcolor=khaki];
-            sq132 -> dummy_gwent [color=khaki];
-            sq133 -> dummy_gwent [color=khaki];
-            dummy_gwent -> sq002 [color=khaki];
+            dummy_gwent [style=invis];
+            sq132 -> dummy_gwent [style=invis];
+            sq133 -> dummy_gwent [style=invis];
+            dummy_gwent -> sq002 [style=invis];
         
         # Blood and Wine
-            BAWsq27 -> BAWsq18 [color=khaki];
-            BAWsq27 -> BAWsq22 [color=khaki];
-            BAWsq18 -> BAWsq17 [color=khaki];
-            BAWsq22 -> BAWsq11 [color=khaki];
-            BAWsq19 -> BAWsq16 [color=khaki];
-            BAWsq14 -> BAWsq29 [color=khaki];
-            BAWsq12 -> BAWsq01 [color=khaki];
-            BAWsq03 -> BAWsq25 [color=khaki];
-            BAWsq05 -> BAWsq06 -> BAWsq07 -> BAWsq08 -> BAWsq09 [color=khaki];
-            BAWsq31 -> BAWsq32 -> BAWsq33 -> BAWsq34 [color=khaki]; # align nodes vertically to save space
+            BAWsq27 -> BAWsq18 [style=invis];
+            BAWsq27 -> BAWsq22 [style=invis];
+            BAWsq18 -> BAWsq17 [style=invis];
+            BAWsq22 -> BAWsq11 [style=invis];
+            BAWsq19 -> BAWsq16 [style=invis];
+            BAWsq14 -> BAWsq29 [style=invis];
+            BAWsq12 -> BAWsq01 [style=invis];
+            BAWsq03 -> BAWsq25 [style=invis];
+            BAWsq05 -> BAWsq06 -> BAWsq07 -> BAWsq08 -> BAWsq09 [style=invis];
+            BAWsq31 -> BAWsq32 -> BAWsq33 -> BAWsq34 [style=invis]; # align nodes vertically to save space
+            BAWsq25 -> BAWmq16 [style=invis];
+            { rank="same"; BAWsq24 -> BAWsq30 [style=invis]; }
             { rank="same"; BAWmq10; BAWmq12; } # TODO: add an invisible node between these
             { rank="same"; BAWmq14; BAWmq15; }
             # toussaint unlocked
-                BAWmq01 -> toussaint [color=maroon];
-                toussaint -> BAWsq11 [color=maroon];
-                toussaint -> BAWsq17 [color=maroon];
-                toussaint -> BAWsq18 [color=maroon];
-                toussaint -> BAWsq22 [color=maroon];
-                toussaint -> BAWsq27 [color=maroon];
-                toussaint -> BAWsq35 [color=maroon];
-                toussaint -> BAWsq31 [color=maroon];
+                { rank="same"; BAWmq01; toussaint; }
+                toussaint -> BAWsq11 [style=invis];
+                toussaint -> BAWsq17 [style=invis];
+                toussaint -> BAWsq18 [style=invis];
+                toussaint -> BAWsq22 [style=invis];
+                toussaint -> BAWsq27 [style=invis];
+                toussaint -> BAWsq35 [style=invis];
+                toussaint -> BAWsq31 [style=invis];
             
     
     ################################ BASE GAME #################################
@@ -979,7 +940,7 @@ digraph G {
                     mq25 -> mq26;
                 
                 # mq26 - Act 1 main story for Novigrad ends
-                    mq26 -> sq064 [weight=50]; # Dandelion storyline continues in sidequest
+                    mq26 -> sq064; # Dandelion storyline continues in sidequest
                     mq26 -> BAWmq01; # begins Blood and Wine DLC
             
             # mq27
@@ -1062,23 +1023,23 @@ digraph G {
                 mq41 -> mq44 [arrowhead=box,style=dotted];
                 mq42 -> mq44 [arrowhead=box,style=dotted];
                 mq43 -> mq44 [arrowhead=box,style=dotted];
-                sq014 -> mq44 [arrowhead=box,style=dotted];
-                sq016 -> mq44 [arrowhead=box,style=dotted];
-                sq017 -> mq44 [arrowhead=box,style=dotted];
+                #sq014 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from keira quests hidden in favour of arrow from cluster
+                #sq016 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from keira quests hidden in favour of arrow from cluster
+                #sq017 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from keira quests hidden in favour of arrow from cluster
                 sq022 -> mq44 [arrowhead=box,style=dotted];
-                sq030 -> mq44 [arrowhead=box,style=dotted];
-                sq033 -> mq44 [arrowhead=box,style=dotted];
-                sq043 -> mq44 [arrowhead=box,style=dotted];
+                sq030 -> mq44 [arrowhead=box,style=dotted,ltail=cluster_keira];
+                #sq033 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from letho quests hidden in favour of arrow from cluster
+                #sq043 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from keira quests hidden in favour of arrow from cluster
                 sq046 -> mq44 [arrowhead=box,style=dotted];
-                sq048 -> mq44 [arrowhead=box,style=dotted];
+                sq048 -> mq44 [arrowhead=box,style=dotted,ltail=cluster_reardon_manor];
                 sq055 -> mq44 [arrowhead=box,style=dotted];
-                sq056 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
-                sq059 -> mq44 [arrowhead=box,style=dotted];
-                sq063 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
-                sq064 -> mq44 [arrowhead=box,style=dotted];
-                sq065 -> mq44 [arrowhead=box,style=dotted];
+                #sq056 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
+                #sq059 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from triss quests hidden in favour of arrow from cluster
+                #sq063 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
+                #sq064 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from dandelion quests hidden in favour of arrow from cluster
+                sq065 -> mq44 [arrowhead=box,style=dotted,ltail=cluster_dandelion];
                 sq068 -> mq44 [arrowhead=box,style=dotted];
-                sq084 -> mq44 [arrowhead=box,style=dotted];
+                sq084 -> mq44 [arrowhead=box,style=dotted,ltail=cluster_triss];
                 sq091 -> mq44 [arrowhead=box,style=dotted,style=invis]; # individual arrows from assassin quests hidden in favour of arrow from cluster
                 sq114 -> mq44 [arrowhead=box,style=dotted,ltail=cluster_cerys_hjalmar];
                 sq154 -> mq44 [arrowhead=box,style=dotted];
@@ -1177,12 +1138,9 @@ digraph G {
             # sq072
                 sq004 -> sq072 [arrowhead=halfopen,color=azure4]; # if A Deadly Plot is completed before playing Roche, this quest will be skipped
             
-            # sq076
-                sq084 -> sq076 [arrowhead=halfopen,color=azure4]; # if romancing Sasha after A Matter of Life and Death but before Now or Never, a minor bug can occur
-            
             # sq123
-                mq29 -> sq123 [arrowhead=inv];
-                sq132 -> sq123 [arrowhead=inv];
+                mq29 -> sq123 [arrowhead=inv,color=goldenrod];
+                sq132 -> sq123 [arrowhead=inv,color=goldenrod];
     
     
     ################ SIDE QUESTS ################
