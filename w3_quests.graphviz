@@ -2,10 +2,17 @@ digraph G {
     compound=true;
     newrank=true;
     ranksep=2.5;
-    node [ style="rounded,filled", fillcolor=lightgrey, shape=box ];
+    node [ style="rounded,filled", fillcolor=grey90, shape=box, gradientangle=270 ];
     
-    # main quest nodes must be initialised first to make sure they have the right colours
-    ######################################
+    # Legend
+    
+    "White Orchard" [fillcolor="grey90;0.85:darksalmon"];
+    "Vizima" [fillcolor="grey90;0.85:gray10"];
+    "Velen" [fillcolor="grey90;0.85:cornflowerblue"];
+    "Novigrad" [fillcolor="grey90;0.85:mediumaquamarine"];
+    "Skellige" [fillcolor="grey90;0.85:firebrick4"];
+    "Kaer Morhen" [fillcolor="grey90;0.85:lightskyblue3"];
+    "Toussaint" [fillcolor="grey90;0.85:maroon3"];
     
     
 #################################### NODES #####################################
@@ -18,24 +25,25 @@ digraph G {
             fillcolor=transparent;
             
             subgraph cluster_prologue_to_act2 {
-                color=transparent;
                 
                 subgraph cluster_prologue {
                     label="Prologue";
-                    fillcolor=gray50;
+                    fillcolor=gray70;
                     
                     subgraph prologue_main {
-                        node [fillcolor=white];
+                        node [fillcolor="white;0.85:darksalmon",fontsize=16.0,penwidth=2.5];
                         
-                        { rank="source"; mq01 [label="Kaer Morhen"]; }
+                        { rank="source"; mq01 [label="Kaer Morhen",fillcolor="white;0.85:lightskyblue3"]; }
                         
                         mq02 [label="Lilac and Gooseberries"];
                         mq03 [label="The Beast of White Orchard"];
                         mq04 [label="The Incident at White Orchard"];
-                        mq05 [label="Imperial Audience"];
+                        mq05 [label="Imperial Audience",fillcolor="white;0.85:gray10"];
                     }
                     
                     subgraph prologue_side {
+                        node [fillcolor="grey90;0.85:darksalmon"];
+                        
                         sq007 [label="A Frying Pan, Spick and Span"];
                         sq009 [label="Missing in Action"];
                         sq010 [label="On Death's Bed"];
@@ -51,17 +59,17 @@ digraph G {
                     subgraph cluster_act1_velen {
                         label="Act I: In Ciri's Footsteps\n(Velen)";
                         style="rounded,filled";
-                        fillcolor=gray50;
+                        fillcolor=gray70;
                         
                         subgraph act1_velen_main {
-                            node [fillcolor=white];
+                            node [fillcolor="white;0.85:cornflowerblue",fontsize=16.0,penwidth=2.5];
                             
                             mq06 [label="The Nilfgaardian Connection"];
                             mq07 [label="Bloody Baron"];
                             mq08 [label="Ciri's Story: The King of the Wolves"];
                             mq09 [label="Family Matters"];
-                            mq09_a [label="Family Matters (Find the Baron's wife)"];
-                            mq09_b [label="Family Matters (Find the Baron's daughter)"];
+                            mq09_a [label="Family Matters (Find the Baron's wife)",penwidth=2];
+                            mq09_b [label="Family Matters (Find the Baron's daughter)",penwidth=2];
                             mq10 [label="A Princess in Distress"];
                             mq11 [label="Ciri's Story: The Race"];
                             mq12 [label="Ciri's Story: Out of the Shadows"];
@@ -72,6 +80,8 @@ digraph G {
                         }
                         
                         subgraph act1_velen_side {
+                            node [fillcolor="grey90;0.85:cornflowerblue"];
+                            
                             sq050 [label="The Whispering Hillock"];
                         }
                         
@@ -80,22 +90,22 @@ digraph G {
                     subgraph cluster_act1_novigrad {
                         label="Act I: In Ciri's Footsteps\n(Novigrad)";
                         style="rounded,filled";
-                        fillcolor=gray50;
+                        fillcolor=gray70;
                         
                         subgraph act1_novigrad_main {
-                            node [fillcolor=white];
+                            node [fillcolor="white;0.85:mediumaquamarine",fontsize=16.0,penwidth=2.5];
                             
                             mq17 [label="Pyres of Novigrad"];
                             mq18 [label="Novigrad Dreaming"];
                             mq19 [label="Broken Flowers"];
                             mq20 [label="Get Junior"];
-                            mq20_a [label="Get Junior (Search Hideout)"];
-                            mq20_b [label="Get Junior (Search Arena)"];
-                            mq20_c [label="Get Junior (Search Casino)"];
-                            mq20_d [label="Get Junior (Meet the Redanian contact)"];
+                            mq20_a [label="Get Junior (Search Hideout)",penwidth=2];
+                            mq20_b [label="Get Junior (Search Arena)",penwidth=2];
+                            mq20_c [label="Get Junior (Search Casino)",penwidth=2];
+                            mq20_d [label="Get Junior (Meet the Redanian contact)",penwidth=2];
                             mq21 [label="Ciri's Story: Visiting Junior"];
                             mq22 [label="Count Reuven's Treasure"];
-                            mq22_a [label="Count Reuven's Treasure (Witch Hunters' Outpost)"];
+                            mq22_a [label="Count Reuven's Treasure (Witch Hunters' Outpost)",penwidth=2];
                             mq23 [label="A Favor for Radovid"];
                             mq24 [label="The Play's the Thing"];
                             mq25 [label="A Poet Under Pressure"];
@@ -103,6 +113,8 @@ digraph G {
                         }
                         
                         subgraph act1_novigrad_side {
+                            node [fillcolor="grey90;0.85:mediumaquamarine"];
+                            
                             sq003 [label="Following The Thread"];
                             sq061 [label="A Walk on the Waterfront"];
                             sq099 [label="The Gangs of Novigrad"];
@@ -113,10 +125,10 @@ digraph G {
                     subgraph cluster_act1_skellige {
                         label="Act I: In Ciri's Footsteps\n(Skellige)";
                         style="rounded,filled";
-                        fillcolor=gray50;
+                        fillcolor=gray70;
                         
                         subgraph act1_skellige_main {
-                            node [fillcolor=white];
+                            node [fillcolor="white;0.85:firebrick4",fontsize=16.0,penwidth=2.5];
                             
                             mq27 [label="Destination: Skellige"];
                             mq28 [label="The King is Dead - Long Live the King"];
@@ -128,6 +140,8 @@ digraph G {
                         }
                         
                         subgraph act1_skellige_side {
+                            node [fillcolor="grey90;0.85:firebrick4"];
+                            
                             sq003_a [label="Following The Thread (Hammond)"];
                             sq120 [label="Flesh for Sale"];
                             sq144 [label="The Last Wish"];
@@ -142,43 +156,53 @@ digraph G {
                     
                     label="Act II";
                     style="rounded,filled";
-                    fillcolor=gray50;
+                    fillcolor=gray70;
                     
                     subgraph act2_main {
-                        node [fillcolor=white];
+                        node [fillcolor="white;0.85:lightskyblue3",fontsize=16.0,penwidth=2.5];
                         
-                        mq34 [label="Ugly Baby"];
-                        mq34_b [label="Ugly Baby (Ending)"];
+                        mq34 [label="Ugly Baby",fillcolor="white;0.85:cornflowerblue"];
+                        mq34_b [label="Ugly Baby (Ending)",penwidth=2];
                         mq35 [label="Disturbance"];
                         mq36 [label="To Bait a Forktail..."];
                         mq37 [label="The Final Trial"];
                         mq38 [label="No Place Like Home"];
                         mq39 [label="Va Fail, Elaine"];
-                        mq40 [label="Brothers In Arms: Velen"];
-                        mq41 [label="Brothers In Arms: Novigrad"];
-                        mq42 [label="Brothers In Arms: Skellige"];
-                        mq43 [label="Brothers In Arms: Nilfgaard"];
-                        mq44 [label="The Isle of Mists"];
+                        mq40 [label="Brothers In Arms: Velen",fillcolor="white;0.85:cornflowerblue"];
+                        mq41 [label="Brothers In Arms: Novigrad",fillcolor="white;0.85:mediumaquamarine"];
+                        mq42 [label="Brothers In Arms: Skellige",fillcolor="white;0.85:firebrick4"];
+                        mq43 [label="Brothers In Arms: Nilfgaard",fillcolor="white;0.85:gray10"];
+                        mq44 [label="The Isle of Mists",fillcolor="white;0.85:firebrick4"];
                         mq45 [label="The Battle of Kaer Morhen"];
                         mq46 [label="Blood on the Battlefield"];
                     }
                     
                     subgraph act2_side {
-                        sq154 [label="Berengar's Blade"];
+                        sq154 [label="Berengar's Blade",fillcolor="grey90;0.85:lightskyblue3"];
                     }
                 }
                 
                 subgraph side_prologue_to_act2 {
-                    sq022 [label="Ciri's Room"];
-                    sq042 [label="Lynch Mob"];
-                    sq046 [label="Return to Crookback Bog"];
-                    sq055 [label="A Dangerous Game"];
-                    sq068 [label="Fencing Lessons"];
-                    sq106 [label="Witch Hunter Raids"];
-            
+                    { # velen
+                        node [fillcolor="grey90;0.85:cornflowerblue"];
+                        
+                        sq022 [label="Ciri's Room"];
+                        sq042 [label="Lynch Mob"];
+                        sq046 [label="Return to Crookback Bog"];
+                    }
+                    
+                    { # novigrad
+                        node [fillcolor="grey90;0.85:mediumaquamarine"];
+                        
+                        sq055 [label="A Dangerous Game"];
+                        sq068 [label="Fencing Lessons"];
+                        sq106 [label="Witch Hunter Raids"];
+                    }
+                    
                     subgraph cluster_assassin {
                         label="Assassin's Quests";
                         fillcolor=gainsboro;
+                        node [fillcolor="grey90;0.85:mediumaquamarine"];
                         
                         sq056 [label="A Deadly Plot"];
                         sq063 [label="An Eye for an Eye"];
@@ -189,14 +213,16 @@ digraph G {
                     subgraph cluster_triss {
                         label="Triss";
                         fillcolor=gainsboro;
+                        node [fillcolor="grey90;0.85:mediumaquamarine"];
                         
-                        sq059 [label="A Matter of Life and Death"];
-                        sq084 [label="Now or Never"];
+                        sq059 [label="A Matter of Life and Death",fillcolor="grey90;0.85:mediumaquamarine"];
+                        sq084 [label="Now or Never",fillcolor="grey90;0.85:mediumaquamarine"];
                     }
                     
                     subgraph cluster_dandelion {
                         label="Dandelion";
                         fillcolor=gainsboro;
+                        node [fillcolor="grey90;0.85:mediumaquamarine"];
                         
                         sq064 [label="Cabaret"];
                         sq065 [label="Carnal Sins"];
@@ -205,6 +231,7 @@ digraph G {
                     subgraph cluster_keira {
                         label="Keira";
                         fillcolor=gainsboro;
+                        node [fillcolor="grey90;0.85:cornflowerblue"];
                         
                         sq014 [label="A Favor for a Friend"];
                         sq016 [label="A Towerful of Mice"];
@@ -216,12 +243,14 @@ digraph G {
                     subgraph cluster_reardon_manor {
                         label="Reardon Manor (Letho)";
                         fillcolor=gainsboro;
+                        node [fillcolor="grey90;0.85:cornflowerblue"];
                         
                         sq033 [label="Ghosts of the Past"];
                         sq048 [label="The Fall of the House of Reardon"];
                     }
                     
                     subgraph cluster_skellige_inheritance {
+                        node [fillcolor="grey90;0.85:firebrick4"];
                         
                         subgraph cluster_lugos_boys {
                             label="Lugos Sr. and Jr.";
@@ -243,12 +272,26 @@ digraph G {
                             sq145 [label="The Lord of Undvik"];
                         }
                     }
-                    
-                    subgraph best_place_to_put_these_prologue_to_act_2 {
+                }
+                
+                subgraph best_place_to_put_these_prologue_to_act_2 {
+                    { # velen
+                        node [fillcolor="grey90;0.85:cornflowerblue"];
+                        
                         sq015 [label="A Greedy God"];
                         sq031 [label="Forefathers' Eve"];
                         sq039 [label="Last Rites"];
                         sq051 [label="Thou Shalt Not Pass"];
+                        contract08 [label="Contract: Swamp Thing"];
+                        contract14 [label="Contract: Woodland Beast"];
+                        subgraph cluster_fake_papers {
+                            sq019 [label="Bitter Harvest"];
+                            sq027 [label="Fake Papers"];
+                        }
+                    }
+                    { # novigrad
+                        node [fillcolor="grey90;0.85:mediumaquamarine"];
+                        
                         sq057 [label="A Feast for Crows"];
                         sq073 [label="Haunted House"];
                         sq076 [label="High Stakes"];
@@ -257,23 +300,16 @@ digraph G {
                         sq087 [label="Out On Your Arse!"];
                         sq088 [label="Race: The Great Erasmus Vegelbud Memorial Derby"];
                         sq096 [label="Suspicious Shakedown"];
-                        sq125 [label="In Wolf's Clothing"];
-                        sq139 [label="The Four Faces of Hemdall"];
-                        contract08 [label="Contract: Swamp Thing"];
-                        contract14 [label="Contract: Woodland Beast"];
                         contract15 [label="Contract: An Elusive Thief"];
                         contract16 [label="Contract: Deadly Delights"];
+                    }
+                    { # skellige
+                        node [fillcolor="grey90;0.85:firebrick4"];
+                        
+                        sq125 [label="In Wolf's Clothing"];
+                        sq139 [label="The Four Faces of Hemdall"];
                         contract25 [label="Contract: Missing Miners"];
                         contract28 [label="Contract: Skellige's Most Wanted"];
-                        
-                        subgraph cluster_fake_papers {
-                            label="";
-                            color=transparent;
-                            style="";
-                            
-                            sq019 [label="Bitter Harvest"];
-                            sq027 [label="Fake Papers"];
-                        }
                     }
                 }
             }
@@ -281,40 +317,49 @@ digraph G {
             subgraph cluster_act3 {
                 label="Act III";
                 style="rounded,filled";
-                fillcolor=gray50;
+                fillcolor=gray70;
                 
                 subgraph act3_main {
-                    node [fillcolor=white];
+                    node [fillcolor=white,fontsize=16.0,penwidth=2.5];
                     
-                    mq47 [label="Bald Mountain"];
-                    mq48 [label="Final Preparations"];
-                    mq49 [label="Blindingly Obvious"];
-                    mq50 [label="The Great Escape"];
-                    mq51 [label="Payback"];
-                    mq52 [label="Through Time and Space"];
-                    mq53 [label="Battle Preparations"];
-                    mq54 [label="The Sunstone"];
-                    mq55 [label="Veni Vidi Vigo"];
-                    mq56 [label="Child of the Elder Blood"];
-                    mq57 [label="Skjall's Grave"];
-                    mq58 [label="On Thin Ice"];
-                    mq59 [label="Tedd Deireadh, The Final Age"];
-                    mq60 [label="Something Ends, Something Begins"];
+                    {
+                        node [fillcolor="white;0.85:cornflowerblue"];
+                        mq47 [label="Bald Mountain"];
+                    }
+                    {
+                        node [fillcolor="white;0.85:mediumaquamarine"];
+                        mq48 [label="Final Preparations"];
+                        mq49 [label="Blindingly Obvious"];
+                        mq50 [label="The Great Escape"];
+                        mq51 [label="Payback"];
+                        mq52 [label="Through Time and Space"];
+                        mq53 [label="Battle Preparations"];
+                    }
+                    {
+                        node [fillcolor="white;0.85:firebrick4"];
+                        mq54 [label="The Sunstone"];
+                        mq55 [label="Veni Vidi Vigo"];
+                        mq56 [label="Child of the Elder Blood"];
+                        mq57 [label="Skjall's Grave"];
+                        mq58 [label="On Thin Ice"];
+                        mq59 [label="Tedd Deireadh, The Final Age"];
+                    }
+                    mq60 [label="Something Ends, Something Begins"]; # can be set in Velen or White Orchard, depending on the ending
                 }
                 
                 subgraph act3_side {
-                    sq008 [label="Faithful Friend"];
-                    sq058 [label="A Final Kindness"];
-                    sq078 [label="It Takes Three to Tango"];
-                    sq090 [label="Reason of State"];
+                    sq008 [label="Faithful Friend",fillcolor="grey90;0.85:darksalmon"];
+                    sq058 [label="A Final Kindness",fillcolor="grey90;0.85:mediumaquamarine"];
+                    sq078 [label="It Takes Three to Tango",fillcolor="grey90;0.85:mediumaquamarine"];
+                    sq090 [label="Reason of State",fillcolor="grey90;0.85:mediumaquamarine"];
                 }
                 
             }
             
             subgraph side_prologue_to_act3 {
-                sq101 [label="The Nobleman Statuette"];
-                sq103 [label="The Soldier Statuette"];
-                contract01 [label="Contract: Devil by the Well"];
+                sq101 [label="The Nobleman Statuette",fillcolor="grey90;0.85:mediumaquamarine"];
+                sq103 [label="The Soldier Statuette",fillcolor="grey90;0.85:mediumaquamarine"];
+                contract01 [label="Contract: Devil by the Well",fillcolor="grey90;0.85:darksalmon"];
             }
             
         }
@@ -330,14 +375,14 @@ digraph G {
                     sq002 [label="Collect 'Em All"];
                     
                     sq004 [label="Gwent: Old Pals"];
-                    sq034 [label="Gwent: Velen Players"];
-                    sq070 [label="Gwent: Big City Players"];
-                    sq071 [label="Gwent: Playing Innkeeps"];
-                    sq072 [label="Gwent: Playing Thaler"];
-                    sq123 [label="Gwent: Skellige Style"];
+                    sq034 [label="Gwent: Velen Players",fillcolor="grey90;0.85:cornflowerblue"];
+                    sq070 [label="Gwent: Big City Players",fillcolor="grey90;0.85:mediumaquamarine"];
+                    sq071 [label="Gwent: Playing Innkeeps",fillcolor="grey90;0.85:mediumaquamarine"];
+                    sq072 [label="Gwent: Playing Thaler",fillcolor="grey90;0.85:mediumaquamarine"];
+                    sq123 [label="Gwent: Skellige Style",fillcolor="grey90;0.85:firebrick4"];
                 }
-                sq132 [label="Practicum in Advanced Alchemy"];
-                sq133 [label="Shock Therapy"];
+                sq132 [label="Practicum in Advanced Alchemy",fillcolor="grey90;0.85:firebrick4"];
+                sq133 [label="Shock Therapy",fillcolor="grey90;0.85:firebrick4"];
             }
             
             subgraph cluster_no_main_story_connection {
@@ -366,6 +411,7 @@ digraph G {
                 subgraph cluster_kaer_morhen {
                     label="Kaer Morhen";
                     fillcolor=gainsboro;
+                    node [fillcolor="grey90;0.85:lightskyblue3"];
                     
                     sq155 [label="Greenhouse Effect"];
                     sq156 [label="Monster Slayer"];
@@ -380,6 +426,7 @@ digraph G {
                 subgraph cluster_velen {
                     label="Velen";
                     fillcolor=gainsboro;
+                    node [fillcolor="grey90;0.85:cornflowerblue"];
                     
                     sq013 [label="A Dog's Life"];
                     sq018 [label="At the Mercy of Strangers"]; # done?
@@ -446,6 +493,7 @@ digraph G {
                 subgraph cluster_novigrad {
                     label="Novigrad";
                     fillcolor=gainsboro;
+                    node [fillcolor="grey90;0.85:mediumaquamarine"];
                     
                     sq006_a [label="Never Trust Children (Novigrad)"];
                     sq054 [label="A Barnful of Trouble"];
@@ -487,12 +535,12 @@ digraph G {
                     
                     subgraph cluster_HoS {
                         label="Hearts of Stone";
-                        fillcolor=gray50;
+                        fillcolor=gray70;
                         
                         subgraph cluster_HoS_main {
                             label="";
-                            fillcolor=gray60;
-                            node [fillcolor=white];
+                            fillcolor=gray80;
+                            node [fillcolor="white;0.85:mediumaquamarine",fontsize=16.0,penwidth=2.5];
                             
                             HOSmq1 [label="Evil's Soft First Touches"];
                             HOSmq2 [label="Dead Man's Party"];
@@ -532,6 +580,7 @@ digraph G {
                 subgraph cluster_skellige {
                     label="Skellige";
                     fillcolor=gainsboro;
+                    node [fillcolor="grey90;0.85:firebrick4"];
                     
                     sq006_b [label="Never Trust Children (Skellige)"];
                     sq107 [label="A Bard's Beloved"];
@@ -587,23 +636,23 @@ digraph G {
                         style="rounded,filled";
                         fillcolor=gainsboro;
                         
-                        sq028 [label="Fists of Fury: Velen"];
-                        sq069 [label="Fists of Fury: Novigrad"];
-                        sq119 [label="Fists of Fury: Skellige"];
-                        sq118 [label="Fists of Fury: Champion of Champions"];
+                        sq028 [label="Fists of Fury: Velen",fillcolor="grey90;0.85:cornflowerblue"];
+                        sq069 [label="Fists of Fury: Novigrad",fillcolor="grey90;0.85:mediumaquamarine"];
+                        sq119 [label="Fists of Fury: Skellige",fillcolor="grey90;0.85:firebrick4"];
+                        sq118 [label="Fists of Fury: Champion of Champions",fillcolor="grey90;0.85:firebrick4"];
                     }
-                    sq127 [label="Iron Maiden"];
-                    sq129 [label="Master of the Arena"];
+                    sq127 [label="Iron Maiden",fillcolor="grey90;0.85:firebrick4"];
+                    sq129 [label="Master of the Arena",fillcolor="grey90;0.85:firebrick4"];
                     
                     dummy6 [style=invis];
                     { rank="same"; dummy6; sq129; sq028; sq069; sq119; }
                 }
                 
-                dummy1_b -> dummy2 [style=invis];
                 dummy2 -> dummy3_a [style=invis];
                 dummy3_b -> dummy4_a [style=invis];
                 dummy4_b -> dummy5_a [style=invis];
-                dummy5_b -> dummy6 [style=invis];
+                dummy5_b -> dummy1_a [style=invis];
+                { rank="same"; dummy1_a; dummy6; }
                 
             }
         
@@ -614,14 +663,15 @@ digraph G {
     subgraph cluster_BaW {
         label="Blood and Wine";
         style="rounded,filled";
-        fillcolor=gray50;
+        fillcolor=gray70;
+        node [fillcolor="grey90;0.85:maroon3"];
         
         subgraph cluster_BaW_main {
             label="Main";
-            fillcolor=lightgrey;
-            node [fillcolor=white];
+            fillcolor=grey90;
+            node [fillcolor="white;0.85:maroon3",fontsize=16.0,penwidth=2.5];
             
-            { rank="source"; BAWmq01 [label="Envoys, Wineboys"]; }
+            { rank="source"; BAWmq01 [label="Envoys, Wineboys",fillcolor="white;0.85:cornflowerblue"]; }
             
             BAWmq02 [label="The Beast of Toussaint"];
             BAWmq03 [label="Blood Run"];
