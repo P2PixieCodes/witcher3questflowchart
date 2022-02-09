@@ -24,14 +24,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.1"
-     inkscape:cx="9170"
-     inkscape:cy="11370"
+     inkscape:cx="2590"
+     inkscape:cy="4890"
      inkscape:window-width="3840"
      inkscape:window-height="2064"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="graph0"
      inkscape:object-nodes="false"
      units="in"
      fit-margin-top="0"
@@ -12939,7 +12939,7 @@
       <g
          id="node78"
          class="node"
-         transform="translate(92.567912,-224.13434)">
+         transform="translate(434.17994,-227.8842)">
         <title
            id="title10319">sq042</title>
         <defs
@@ -13021,7 +13021,7 @@
       <g
          id="edge257"
          class="edge"
-         transform="translate(-47.783899,-354.84366)">
+         transform="rotate(104.92444,1994.6611,-4312.3778)">
         <title
            id="title10347">sq042-&gt;sq014</title>
         <path
@@ -13034,7 +13034,7 @@
         <polygon
            fill="#000000"
            stroke="#000000"
-           points="1813.2478,-4172.2661 1808.2502,-4166.0192 1814.4971,-4161.0216 1819.4947,-4167.2686 "
+           points="1814.4971,-4161.0216 1819.4947,-4167.2686 1813.2478,-4172.2661 1808.2502,-4166.0192 "
            id="polygon10351" />
         <polyline
            fill="none"
@@ -14016,8 +14016,9 @@
         <path
            fill="none"
            stroke="#000000"
-           d="m 1839.6773,-4127.9555 c 0,37.5617 0,124.4014 0,169.5452"
-           id="path10703" />
+           d="m 1832.1776,-4061.958 7.4997,103.5477"
+           id="path10703"
+           sodipodi:nodetypes="cc" />
         <polygon
            fill="#000000"
            stroke="#000000"
